@@ -1,4 +1,4 @@
-const CACHE='partygames-shell-5.4.12';
+const CACHE='partygames-shell-5.4.13';
 const SHELL=['./index.html','./manifest.webmanifest','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL))));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
