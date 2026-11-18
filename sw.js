@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.5.3",
+    "changes": {
+      "de": [
+        "Android-Zurück am Anfang des App-Verlaufs wird nicht mehr durch den Beenden-Dialog abgefangen.",
+        "Zusätzlichen Beenden-Verlaufseintrag entfernt; vorhandene alte Einträge werden beim Upgrade am Hauptmenü nach Möglichkeit bereinigt.",
+        "Der separate Beenden-Button behält seine Rückfrage."
+      ],
+      "en": [
+        "Android Back at the start of the app history is no longer intercepted by the exit dialog.",
+        "Removed the extra exit history entry; existing legacy entries are migrated where possible when upgrading at the main menu.",
+        "The separate Exit button keeps its confirmation."
+      ]
+    }
+  },
+  {
     "version": "5.5.2",
     "changes": {
       "de": [
