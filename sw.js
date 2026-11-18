@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.5.5",
+    "changes": {
+      "de": [
+        "Updateprüfung mit zusätzlichem Versionsabruf vom Server und erneuter Registrierung nach Fehlern.",
+        "Herunterladen und Bereitstellen werden bis zum Abschluss geprüft; unvollständige Updates werden als Fehler angezeigt.",
+        "Fehlende Icons blockieren kein App-Update mehr. Serverversion und Fehlerhinweise sind in der Glocke sichtbar."
+      ],
+      "en": [
+        "Update checks now also fetch the server version and retry registration after failures.",
+        "Downloads and installation are monitored to completion; incomplete updates are reported as errors.",
+        "Missing icons no longer block app updates. The bell shows the server version and error information."
+      ]
+    }
+  },
+  {
     "version": "5.5.4",
     "changes": {
       "de": [
@@ -101,20 +116,30 @@ const BASE=new URL(self.registration.scope);
 const CACHE='partygames-shell-'+encodeURIComponent(BASE.pathname)+'-'+RELEASE.version;
 const SHELL=['./index.html','./manifest.webmanifest','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png'];
 const ENTRY=new URL('./index.html',BASE).href;
+async function releaseFetch(path,timeout){
+ const url=new URL(path,BASE);url.searchParams.set('pg-release',RELEASE.version);url.searchParams.set('pg-request',Date.now().toString(36));
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);
+ try{const response=await fetch(url,{cache:'no-store',signal:controller.signal});if(!response.ok)throw Error('HTTP_'+response.status);return response}
+ finally{clearTimeout(timer)}
+}
 self.addEventListener('install',event=>event.waitUntil((async()=>{
- // Fetch the entire release before writing anything to its cache.
- const responses=await Promise.all(SHELL.map(async path=>{
-  const url=new URL(path,BASE).href,res=await fetch(new Request(url,{cache:'no-store'}));
-  if(!res.ok)throw Error('Incomplete release: '+path);
-  if(path==='./index.html'){
-   const html=await res.clone().text();
-   const meta=(html.match(/<meta\b[^>]*>/gi)||[]).find(tag=>/name=["']application-version["']/i.test(tag));
-   const version=meta?.match(/content=["']([^"']+)["']/i)?.[1];
-   if(version!==RELEASE.version)throw Error('Release mismatch');
-  }
-  return [url,res];
- }));
- const cache=await caches.open(CACHE);await Promise.all(responses.map(([u,r])=>cache.put(u,r)));
+ try{
+  const response=await releaseFetch('./index.html',20000),html=await response.clone().text();
+  const meta=(html.match(/<meta\b[^>]*>/gi)||[]).find(tag=>/name=["']application-version["']/i.test(tag));
+  const found=meta?.match(/content=["']([^"']+)["']/i)?.[1];
+  if(found!==RELEASE.version)throw Error('RELEASE_MISMATCH');
+  const cache=await caches.open(CACHE);await cache.put(ENTRY,response);
+  // The HTML contains the application. Branding assets are optional, not an update prerequisite.
+  await Promise.allSettled(SHELL.slice(1).map(async path=>{
+   const response=await releaseFetch(path,5000);await cache.put(new URL(path,BASE).href,response);
+  }));
+ }catch(error){
+  const code=error.message==='RELEASE_MISMATCH'?'RELEASE_MISMATCH':'INSTALL_FAILED';
+  try{for(const client of await self.clients.matchAll({type:'window',includeUncontrolled:true})){
+   if(new URL(client.url).origin===BASE.origin&&new URL(client.url).pathname.startsWith(BASE.pathname))client.postMessage({type:'PARTYGAMES_INSTALL_ERROR',version:RELEASE.version,code});
+  }}catch(ignored){}
+  throw error;
+ }
 })()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
  // Do not delete other tabs' old caches while they may still run old HTML.

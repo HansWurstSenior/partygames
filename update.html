@@ -1,0 +1,39 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Partygames – Update</title><style>html{font:16px/1.5 system-ui;color:#fff;background:#073421}html[data-theme=dark]{background:#202020}body{max-width:640px;margin:32px auto;padding:20px}h1{font-size:26px;color:#fde68a}button{font:inherit;min-height:48px;padding:10px 16px;margin:8px 8px 8px 0;border:1px solid #9ac4a8;border-radius:9px;background:#164e35;color:white}button:disabled{opacity:.5}#status{white-space:pre-wrap;overflow-wrap:anywhere}a{color:#fde68a}</style></head><body><h1 id="title"></h1><p id="intro"></p><button id="check"></button><button id="apply" disabled></button><p id="status" role="status" aria-live="polite"></p><a id="back" href="./index.html"></a><script>
+(()=>{'use strict';
+let en=false;try{en=localStorage.getItem('collection-language')==='en';document.documentElement.dataset.theme=localStorage.getItem('collection-theme')==='dark'?'dark':'default'}catch(e){}
+document.documentElement.lang=en?'en':'de';
+const $=id=>document.getElementById(id),scope=new URL('./',location.href),t=en?{
+ title:'Repair app updates',intro:'Use this page if the update bell is not working. Your language and color preferences are not deleted. Check first, then explicitly activate the update. Activation reloads this window; do not continue during a game.',check:'Find and download update',apply:'Activate update and open app',back:'Back to the app',checking:'Checking and downloading …',ready:'Ready to open version ',confirm:'Activate the update now? Current games and unsaved progress may be lost.',error:'Update failed. Please retry. Error: ',unsupported:'Please use the published HTTPS site.',activating:'Activating …'
+}:{title:'App-Updates reparieren',intro:'Für den Fall, dass die Glocke nicht weiterkommt. Spracheinstellung und Farbschema werden nicht gelöscht. Zuerst prüfen, danach das Update ausdrücklich aktivieren. Beim Aktivieren wird dieses Fenster neu geladen; bitte nicht während einer Partie fortfahren.',check:'Update suchen und herunterladen',apply:'Update aktivieren und App öffnen',back:'Zurück zur App',checking:'Version wird geprüft und heruntergeladen …',ready:'Bereit zum Öffnen von Version ',confirm:'Update jetzt aktivieren? Laufende Partien und nicht gespeicherte Spielstände können verloren gehen.',error:'Update fehlgeschlagen. Bitte erneut versuchen. Fehler: ',unsupported:'Bitte auf der veröffentlichten HTTPS-Seite verwenden.',activating:'Update wird aktiviert …'};
+for(const id of ['title','intro','check','apply','back'])$(id).textContent=t[id];
+let reg=null,version=null,busy=false;const wait=ms=>new Promise(r=>setTimeout(r,ms));
+function timed(p,ms){let timer;return Promise.race([p,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('TIMEOUT')),ms)})]).finally(()=>clearTimeout(timer));}
+function metadata(worker){return new Promise(resolve=>{if(!worker)return resolve(null);const channel=new MessageChannel(),timer=setTimeout(()=>{channel.port1.close();resolve(null)},5000);channel.port1.onmessage=event=>{clearTimeout(timer);channel.port1.close();resolve(event.data)};try{worker.postMessage({type:'GET_RELEASE'},[channel.port2])}catch(e){clearTimeout(timer);channel.port1.close();resolve(null)}});}
+function fail(error){$('status').textContent=t.error+(error.message||'UNKNOWN');busy=false;$('check').disabled=false;$('apply').disabled=true;}
+$('check').onclick=async()=>{
+ if(busy)return;
+ if(!('serviceWorker' in navigator)||!isSecureContext||!/^https?:$/.test(location.protocol)){$('status').textContent=t.unsupported;return;}
+ busy=true;$('check').disabled=true;$('apply').disabled=true;$('status').textContent=t.checking;
+ const abort=new AbortController(),timer=setTimeout(()=>abort.abort(),12000);
+ try{
+  const url=new URL('sw.js',scope);url.searchParams.set('pg-repair',Date.now().toString(36));
+  const response=await fetch(url,{cache:'no-store',signal:abort.signal});if(!response.ok)throw Error('HTTP_'+response.status);
+  const text=await response.text(),match=text.match(/\bconst\s+RELEASE_HISTORY\s*=\s*\[\s*\{\s*"version"\s*:\s*"(\d+\.\d+\.\d+)"/)||text.match(/\bconst\s+RELEASE\s*=\s*\{\s*"version"\s*:\s*"(\d+\.\d+\.\d+)"/);
+  if(!match)throw Error('INVALID_RELEASE_RESPONSE');version=match[1];url.search='';url.searchParams.set('v',version);
+  reg=await timed(navigator.serviceWorker.register(url.href,{scope:scope.href,updateViaCache:'none'}),20000);
+  const end=Date.now()+30000;while(reg.installing){if(Date.now()>end)throw Error('INSTALL_TIMEOUT');await wait(120);}
+  const info=await metadata(reg.waiting||reg.active);if(info?.version!==version)throw Error('INSTALL_FAILED_OR_RELEASE_MISMATCH');
+  $('status').textContent=t.ready+version;$('apply').disabled=false;busy=false;$('check').disabled=false;
+ }catch(error){fail(error)}finally{clearTimeout(timer)}
+};
+$('apply').onclick=async()=>{
+ if(busy||!reg||!version||!window.confirm(t.confirm))return;
+ busy=true;$('check').disabled=true;$('apply').disabled=true;$('status').textContent=t.activating;
+ try{
+  const pending=reg.waiting;if(pending){const info=await metadata(pending);if(info?.version!==version)throw Error('VERSION_CHANGED');pending.postMessage({type:'SKIP_WAITING',version});}
+  const end=Date.now()+20000;
+  while(true){if(Date.now()>end)throw Error('ACTIVATION_TIMEOUT');if(reg.active?.state==='activated'){const info=await metadata(reg.active);if(info?.version===version)break;}await wait(150);}
+  location.replace(new URL('index.html',scope).href);
+ }catch(error){fail(error)}
+};
+})();</script></body></html>
