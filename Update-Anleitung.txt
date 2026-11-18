@@ -1,0 +1,22 @@
+Partygames 5.4.14 – Update-Glocke
+
+Einmalig index.html und sw.js gemeinsam ersetzen. Manifest und Icons bleiben unverändert.
+Die bisherige App-Version besitzt noch keine Glocke: Für diesen einmaligen Übergang können vollständiges Schließen aller App-Fenster und erneutes Öffnen bzw. Neuladen notwendig sein.
+
+Ab dieser Version:
+- Automatische Prüfung beim Start; beim Zurückkehren nach fünf Minuten erneut.
+- Glocke öffnen, um manuell zu prüfen und Versionsdetails zu sehen.
+- Roter Punkt bedeutet: Update heruntergeladen und bereit, oder neue Version bereits in anderem Fenster aktiviert.
+- Aktivierung erst nach Bestätigung. Laufende Partien gehen beim Neuladen verloren.
+- Andere Tabs laden nicht ungefragt neu.
+- Änderungen werden aus RELEASE.changes in sw.js gelesen, nicht aus einem zusätzlichen Serverdienst.
+
+WICHTIG für zukünftige Veröffentlichungen:
+1. Versionsangaben in index.html erhöhen.
+2. RELEASE.version in sw.js auf dieselbe Version setzen.
+3. RELEASE.changes.de und RELEASE.changes.en mit den Änderungen füllen.
+4. Beide Dateien gemeinsam veröffentlichen, idealerweise in einem GitHub-Commit.
+
+Der Worker installiert nur, wenn die HTML-Metadaten dieselbe Version wie RELEASE.version melden und alle benötigten Dateien erreichbar sind. Bei Fehlern bleibt die bisherige Version erhalten.
+Die aktive PWA lädt ihr gespeichertes HTML bis zur bestätigten Aktivierung eines Updates. Einfaches Neuladen überspringt daher kein wartendes Update; dafür die Glocke verwenden.
+Offline kann kein neuer Serverstand geprüft werden. Ein bereits fertig heruntergeladenes Update kann aber offline aktiviert werden.
