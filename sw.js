@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.5.4",
+    "changes": {
+      "de": [
+        "Das gewählte Farbschema Default oder Dark bleibt beim erneuten Öffnen erhalten.",
+        "Das gespeicherte Schema wird bereits beim Start angewendet; Sprachwahl und Android-Zurück bleiben unverändert."
+      ],
+      "en": [
+        "The selected Default or Dark color scheme is remembered when reopening the app.",
+        "The saved theme is applied on startup; language selection and Android Back remain unchanged."
+      ]
+    }
+  },
+  {
     "version": "5.5.3",
     "changes": {
       "de": [
