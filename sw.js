@@ -1,4 +1,74 @@
-const RELEASE={"version": "5.5.0", "changes": {"de": ["Spielanleitungen aller vier Spiele auf Deutsch und Englisch neu gegliedert und verständlich überarbeitet.", "Schwimmen: Gleichzeitiges Ausscheiden aller letzten Spieler endet korrekt unentschieden.", "Werwolf: Abbrechen der privaten Rollenansicht korrigiert; Verliebte nach dem ersten Ausscheiden geschützt einsehbar.", "Kartenbeispiele, KI-Gegner mit Zuschaueransicht und Update-Glocke bleiben erhalten."], "en": ["All four game guides restructured and rewritten for clarity in German and English.", "Thirty-One: correctly show a draw when all remaining players are eliminated together.", "Werewolf: fixed cancelling private role review; lovers can be viewed privately after the first elimination.", "Card examples, AI opponents with spectator view and update bell preserved."]}};
+// Add future releases at the top; keep previous entries for users who skip versions.
+const RELEASE_HISTORY=[
+  {
+    "version": "5.5.2",
+    "changes": {
+      "de": [
+        "Versionshistorie in sw.js, nach Version gruppiert und auf Deutsch und Englisch.",
+        "Die Glocke zeigt beim Update alle hinterlegten Änderungen seit der geöffneten Version.",
+        "Der gesamte hinterlegte Versionsverlauf ist auch ohne anstehendes Update einsehbar."
+      ],
+      "en": [
+        "Version history in sw.js, grouped by version in German and English.",
+        "Update details show all recorded changes since the currently open version.",
+        "The complete recorded version history is available even when no update is pending."
+      ]
+    }
+  },
+  {
+    "version": "5.5.1",
+    "changes": {
+      "de": [
+        "Drei Menübuttons: Spielregeln, Was ist neu? und Beenden.",
+        "Beenden nach Rückfrage; Zurück fragt am Anfang des App-Verlaufs ebenfalls nach.",
+        "Bei blockiertem automatischem Schließen wird ein Hinweis zum manuellen Schließen angezeigt."
+      ],
+      "en": [
+        "Three menu buttons: Rules, What’s new and Exit.",
+        "Exit after confirmation; Back also asks at the start of the app history.",
+        "Manual closing instructions are shown if the browser blocks automatic closing."
+      ]
+    }
+  },
+  {
+    "version": "5.5.0",
+    "changes": {
+      "de": [
+        "Alle vier Spielanleitungen auf Deutsch und Englisch verständlicher gegliedert.",
+        "Schwimmen: Unentschieden bei gleichzeitigem Ausscheiden aller letzten Spieler korrekt angezeigt.",
+        "Werwolf: Abbrechen der privaten Rollenansicht repariert; Verliebte nach dem ersten Ausscheiden geschützt einsehbar."
+      ],
+      "en": [
+        "All four game guides restructured for clarity in German and English.",
+        "Thirty-One: correctly show a draw when all remaining players are eliminated together.",
+        "Werewolf: fixed cancelling private role review; lovers can be viewed privately after the first elimination."
+      ]
+    }
+  },
+  {
+    "version": "5.4.14",
+    "changes": {
+      "de": [
+        "Update-Glocke mit automatischer und manueller Versionsprüfung.",
+        "Änderungshinweise, Offline-Status und Aktualisierung nach Bestätigung."
+      ],
+      "en": [
+        "Update bell with automatic and manual version checks.",
+        "Release notes, offline status and updates after confirmation."
+      ]
+    }
+  }
+];
+const RELEASE={
+ version:RELEASE_HISTORY[0].version,
+ history:RELEASE_HISTORY,
+ // Compatibility summary for update dialogs predating version-history support.
+ changes:Object.fromEntries(['de','en'].map(language=>[language,
+  RELEASE_HISTORY.filter(entry=>entry.version!=='5.4.14').flatMap(entry=>
+   entry.changes[language].map(note=>'Version '+entry.version+': '+note)
+  )
+ ]))
+};
 const BASE=new URL(self.registration.scope);
 const CACHE='partygames-shell-'+encodeURIComponent(BASE.pathname)+'-'+RELEASE.version;
 const SHELL=['./index.html','./manifest.webmanifest','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png'];
