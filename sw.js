@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.7.1",
+    "changes": {
+      "de": [
+        "Meiern nutzt in der Spielauswahl nun dieselbe Icon-Breite wie die übrigen Spiele, sodass in der zweiten Zeile Platz für drei weitere Spiele bleibt."
+      ],
+      "en": [
+        "Mia now uses the same single-column tab width as the other games, leaving room for three more games in the second row."
+      ]
+    }
+  },
+  {
     "version": "5.7.0",
     "changes": {
       "de": [
