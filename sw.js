@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.5.6",
+    "changes": {
+      "de": [
+        "Desktop-Ansicht ab 900 Pixel Breite deutlich verbreitert; Menü, Einstellungen und Regeln nutzen den verfügbaren Platz besser.",
+        "Größere Menü- und Aktionsflächen sowie klare Hover-Rückmeldung für Maus und Trackpad.",
+        "Updateprüfung, Sprachwahl, Farbschema und Android-Zurück bleiben unverändert."
+      ],
+      "en": [
+        "Desktop layout widens noticeably from 900 pixels; menu, setup and rules use available space better.",
+        "Larger menu and action targets plus clear hover feedback for mouse and trackpad.",
+        "Update checks, language selection, color scheme and Android Back remain unchanged."
+      ]
+    }
+  },
+  {
     "version": "5.5.5",
     "changes": {
       "de": [
