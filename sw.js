@@ -1,6 +1,23 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.7.0",
+    "changes": {
+      "de": [
+        "Meiern (Mäxchen) als fünftes Partyspiel: offline an einem Gerät für 2–12 Menschen.",
+        "Animierter Würfelbecher, private Würfelansicht, steigende Ansagen, Blindweitergabe und Anzweifeln mit automatischer Lebenswertung.",
+        "Neue Spielauswahl mit zweiter Zeile auf mobilen Geräten; vollständige deutsche und englische Mia-Anleitung.",
+        "Versionsanzeige im Hauptmenü wird nun aus derselben Metadaten-Version wie die Update-Glocke erzeugt."
+      ],
+      "en": [
+        "Mia (Meiern / Mäxchen) joins as the fifth party game: offline on one device for 2–12 human players.",
+        "Animated dice cup, private rolls, rising bids, blind passes and challenges with automatic life tracking.",
+        "New game selector with a second row on mobile; complete German and English Mia rules.",
+        "Main-menu version now uses the same version metadata as the update bell."
+      ]
+    }
+  },
+  {
     "version": "5.5.6",
     "changes": {
       "de": [
