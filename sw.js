@@ -174,7 +174,7 @@ const RELEASE={
 };
 const BASE=new URL(self.registration.scope);
 const CACHE='partygames-shell-'+encodeURIComponent(BASE.pathname)+'-'+RELEASE.version;
-const SHELL=['./index.html','./manifest.webmanifest','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png'];
+const SHELL=['./index.html','./update.html','./manifest.webmanifest','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png'];
 const ENTRY=new URL('./index.html',BASE).href;
 async function releaseFetch(path,timeout){
  const url=new URL(path,BASE);url.searchParams.set('pg-release',RELEASE.version);url.searchParams.set('pg-request',Date.now().toString(36));
@@ -189,7 +189,7 @@ self.addEventListener('install',event=>event.waitUntil((async()=>{
   const found=meta?.match(/content=["']([^"']+)["']/i)?.[1];
   if(found!==RELEASE.version)throw Error('RELEASE_MISMATCH');
   const cache=await caches.open(CACHE);await cache.put(ENTRY,response);
-  // The HTML contains the application. Branding assets are optional, not an update prerequisite.
+  // The HTML contains the application. Branding assets and repair page are optional, not an update prerequisite.
   await Promise.allSettled(SHELL.slice(1).map(async path=>{
    const response=await releaseFetch(path,5000);await cache.put(new URL(path,BASE).href,response);
   }));
