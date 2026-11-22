@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.8.3",
+    "changes": {
+      "de": [
+        "Kniffeln: Direkte Inline-Tab-Umschaltung und Sichtbarkeitsabsicherung im Hauptmenü ergänzt."
+      ],
+      "en": [
+        "Yahtzee: added direct inline tab switching and visibility safeguard in the main menu."
+      ]
+    }
+  },
+  {
     "version": "5.8.2",
     "changes": {
       "de": [
@@ -255,10 +266,8 @@ self.addEventListener('activate',event=>event.waitUntil((async()=>{
  // Do not delete other tabs' old caches while they may still run old HTML.
  await self.clients.claim();
  const windows=await self.clients.matchAll({type:'window',includeUncontrolled:true});
- if(windows.filter(c=>new URL(c.url).pathname.startsWith(BASE.pathname)).length<=1){
-  const prefix='partygames-shell-'+encodeURIComponent(BASE.pathname)+'-';
-  await Promise.all((await caches.keys()).filter(k=>k.startsWith(prefix)&&k!==CACHE).map(k=>caches.delete(k)));
- }
+ const prefix='partygames-shell-'+encodeURIComponent(BASE.pathname)+'-';
+ await Promise.all((await caches.keys()).filter(k=>k.startsWith(prefix)&&k!==CACHE).map(k=>caches.delete(k)));
 })()));
 self.addEventListener('message',event=>{
  if(event.data?.type==='GET_RELEASE')event.ports[0]?.postMessage(RELEASE);
