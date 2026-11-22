@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.7.3",
+    "changes": {
+      "de": [
+        "Meiern: Übergabebildschirm entfernt – nach der Ansage sieht die nächste Person direkt die Ansage und den verdeckten Becher.",
+        "Haptisches Würfeln: Becher lässt sich durch Schütteln des Smartphones auslösen; Vibration begleitet das Würfeln und Aufdecken."
+      ],
+      "en": [
+        "Mia: removed the handoff screen — after a bid, the next player immediately sees the bid and covered cup.",
+        "Haptic rolling: shake your smartphone to roll the cup, with vibration feedback during rolling and reveal."
+      ]
+    }
+  },
+  {
     "version": "5.7.2",
     "changes": {
       "de": [
