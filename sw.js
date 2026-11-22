@@ -1,6 +1,27 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.9.0",
+    "changes": {
+      "de": [
+        "Kniffeln-Start repariert; Würfelbeschriftung vereinfacht und doppelte Start-Ereignisse entfernt.",
+        "Initialisierungsdiagnose verhindert bei fehlerhaftem Spielskript einen stummen Menüausfall.",
+        "Kniffeln-Wertung und Joker-Pflichtfelder korrigiert; manuelle Eingaben, Bonusbuchungen und veraltete Bedienelemente abgesichert.",
+        "Würfelbutton funktioniert ohne Sensorfreigabe; Schütteln ist optional und in Dialogen sowie im Hintergrund pausiert.",
+        "Service-Worker-Downloads inklusive Antwortinhalt zeitlich begrenzt; alte Caches bei mehreren offenen Ansichten erhalten.",
+        "Ausführbare Release-Prüfung für Syntax, Versionen, Kniffeln-Initialisierung und Wertungsregressionen ergänzt."
+      ],
+      "en": [
+        "Repaired Yahtzee startup; simplified dice labels and removed duplicate start events.",
+        "Initialization diagnostics prevent silent menu failure when the game script is broken.",
+        "Corrected Yahtzee scoring and mandatory Joker boxes; hardened manual entries, bonus recording and stale controls.",
+        "Roll button works without motion permission; shaking is optional and paused in dialogs and in the background.",
+        "Service worker downloads time out including response bodies; old caches are retained when multiple pages are open.",
+        "Added an executable release check covering syntax, versions, Yahtzee initialization and scoring regressions."
+      ]
+    }
+  },
+  {
     "version": "5.8.7",
     "changes": {
       "de": [
@@ -264,7 +285,11 @@ const ENTRY=new URL('./index.html',BASE).href;
 async function releaseFetch(path,timeout){
  const url=new URL(path,BASE);url.searchParams.set('pg-release',RELEASE.version);url.searchParams.set('pg-request',Date.now().toString(36));
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);
- try{const response=await fetch(url,{cache:'no-store',signal:controller.signal});if(!response.ok)throw Error('HTTP_'+response.status);return response}
+ try{
+  const response=await fetch(url,{cache:'no-store',signal:controller.signal});if(!response.ok)throw Error('HTTP_'+response.status);
+  const body=await response.arrayBuffer(),headers=new Headers(response.headers);headers.delete('content-encoding');headers.delete('content-length');
+  return new Response(body,{status:response.status,statusText:response.statusText,headers});
+ }
  finally{clearTimeout(timer)}
 }
 self.addEventListener('install',event=>event.waitUntil((async()=>{
@@ -297,7 +322,9 @@ self.addEventListener('activate',event=>event.waitUntil((async()=>{
  await self.clients.claim();
  const windows=await self.clients.matchAll({type:'window',includeUncontrolled:true});
  const prefix='partygames-shell-'+encodeURIComponent(BASE.pathname)+'-';
- await Promise.all((await caches.keys()).filter(k=>k.startsWith(prefix)&&k!==CACHE).map(k=>caches.delete(k)));
+ if(windows.filter(c=>new URL(c.url).origin===BASE.origin&&new URL(c.url).pathname.startsWith(BASE.pathname)).length<=1){
+  await Promise.all((await caches.keys()).filter(k=>k.startsWith(prefix)&&k!==CACHE).map(k=>caches.delete(k)));
+ }
 })()));
 self.addEventListener('message',event=>{
  if(event.data?.type==='GET_RELEASE')event.ports[0]?.postMessage(RELEASE);
