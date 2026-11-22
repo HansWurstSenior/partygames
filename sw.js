@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.8.0",
+    "changes": {
+      "de": [
+        "Kniffeln (Yahtzee) als sechstes Partyspiel ergänzt (1–8 Spieler).",
+        "Zwei Modi: Komplett digital mit 5 Würfeln (inklusive Halten, Schütteln und Vibration) oder als reiner Kniffel-Block für echte Würfel.",
+        "Standardregeln mit 63er-Bonus, Kniffel-Bonus (+100) und Joker-Regel auf Deutsch und Englisch."
+      ],
+      "en": [
+        "Added Yahtzee (Kniffeln) as the sixth party game (1–8 players).",
+        "Two modes: Full digital with 5 dice (including hold, shake-to-roll and vibration) or score-sheet-only mode for physical dice.",
+        "Standard rules with 63 upper bonus, Yahtzee bonus (+100) and Joker rule in German and English."
+      ]
+    }
+  },
+  {
     "version": "5.7.3",
     "changes": {
       "de": [
