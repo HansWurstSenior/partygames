@@ -1,13 +1,13 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
-    "version": "5.8.4",
+    "version": "5.8.5",
     "changes": {
       "de": [
-        "Kniffeln: Syntaxfehler im Spiel-Skript behoben; das Kniffel-Menü lässt sich im Hauptmenü wieder öffnen."
+        "Service Worker: Mehrfacher Abgleich der Zielversion bei CDN-Verzögerung, um kurzzeitige Mismatch-Fehler zu vermeiden."
       ],
       "en": [
-        "Yahtzee: fixed a script syntax error; the Yahtzee menu opens again from the main menu."
+        "Service worker: retried release version check during CDN propagation to avoid transient mismatch errors."
       ]
     }
   },
@@ -256,9 +256,15 @@ async function releaseFetch(path,timeout){
 }
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  try{
-  const response=await releaseFetch('./index.html',20000),html=await response.clone().text();
-  const meta=(html.match(/<meta\b[^>]*>/gi)||[]).find(tag=>/name=["']application-version["']/i.test(tag));
-  const found=meta?.match(/content=["']([^"']+)["']/i)?.[1];
+  let response=null, found='';
+  for(let attempt=0;attempt<3;attempt++){
+   response=await releaseFetch('./index.html',20000);
+   const html=await response.clone().text();
+   const meta=(html.match(/<meta\b[^>]*>/gi)||[]).find(tag=>/name=["']application-version["']/i.test(tag));
+   found=meta?.match(/content=["']([^"']+)["']/i)?.[1]||'';
+   if(found===RELEASE.version)break;
+   if(attempt<2)await new Promise(r=>setTimeout(r,1500));
+  }
   if(found!==RELEASE.version)throw Error('RELEASE_MISMATCH');
   const cache=await caches.open(CACHE);await cache.put(ENTRY,response);
   // The HTML contains the application. Branding assets and repair page are optional, not an update prerequisite.
