@@ -1,6 +1,23 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.7.2",
+    "changes": {
+      "de": [
+        "Meiern: kompakter Übergabebildschirm ohne dekorativen Würfelbecher; verdeckte Bereitschaftsbestätigung bleibt erhalten.",
+        "Optionaler Trinkmodus (18+) statt Leben: eine Trinkaufforderung pro verlorener Runde, auch bei Mäxchen; kein Ausscheiden.",
+        "Moduswahl, Ergebnisanzeige und Spielregeln vollständig auf Deutsch und Englisch ergänzt.",
+        "README durch eine versionsunabhängige Projektbeschreibung mit kurzen Spielporträts ersetzt."
+      ],
+      "en": [
+        "Mia: compact handoff screen without the decorative dice cup; private readiness confirmation remains.",
+        "Optional drinking mode (18+) instead of lives: one drinking prompt per round lost, including Mia; no elimination.",
+        "Mode selection, results and rules fully updated in German and English.",
+        "README replaced with a version-independent project description and short game summaries."
+      ]
+    }
+  },
+  {
     "version": "5.7.1",
     "changes": {
       "de": [

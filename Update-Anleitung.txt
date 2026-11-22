@@ -1,22 +1,28 @@
-Partygames 5.4.14 – Update-Glocke
+Partygames – Veröffentlichung und Updates
 
-Einmalig index.html und sw.js gemeinsam ersetzen. Manifest und Icons bleiben unverändert.
-Die bisherige App-Version besitzt noch keine Glocke: Für diesen einmaligen Übergang können vollständiges Schließen aller App-Fenster und erneutes Öffnen bzw. Neuladen notwendig sein.
+Diese Datei beschreibt die Veröffentlichung. Die README enthält ausschließlich die allgemeine Projektbeschreibung und muss bei Versionswechseln nicht angepasst werden.
 
-Ab dieser Version:
-- Automatische Prüfung beim Start; beim Zurückkehren nach fünf Minuten erneut.
-- Glocke öffnen, um manuell zu prüfen und Versionsdetails zu sehen.
-- Roter Punkt bedeutet: Update heruntergeladen und bereit, oder neue Version bereits in anderem Fenster aktiviert.
-- Aktivierung erst nach Bestätigung. Laufende Partien gehen beim Neuladen verloren.
-- Andere Tabs laden nicht ungefragt neu.
-- Änderungen werden aus RELEASE.changes in sw.js gelesen, nicht aus einem zusätzlichen Serverdienst.
+Veröffentlichen:
+- index.html und sw.js gemeinsam ersetzen, möglichst in einem GitHub-Commit.
+- README.md beziehungsweise README.txt durch die gewünschte aktuelle Projektbeschreibung ersetzen.
+- Vorhandenes Manifest und den Ordner icons beibehalten, sofern das Update dafür keine neuen Dateien enthält.
+- Ein Update-ZIP enthält nur die ausdrücklich aufgeführten Dateien; bestehende zusätzliche Dateien nicht versehentlich entfernen.
 
-WICHTIG für zukünftige Veröffentlichungen:
-1. Versionsangaben in index.html erhöhen.
-2. RELEASE.version in sw.js auf dieselbe Version setzen.
-3. RELEASE.changes.de und RELEASE.changes.en mit den Änderungen füllen.
-4. Beide Dateien gemeinsam veröffentlichen, idealerweise in einem GitHub-Commit.
+Versionspflege:
+- Die application-version in index.html und der erste Eintrag in RELEASE_HISTORY in sw.js müssen übereinstimmen.
+- Neue Release-Einträge mit Änderungen auf Deutsch und Englisch oben ergänzen; bestehende Historie beibehalten.
+- RELEASE.version und die Cache-Version werden daraus abgeleitet.
+- Live-Versionsanzeigen der Oberfläche werden aus den Anwendungsmetadaten erzeugt. Alte Changelog-Überschriften nicht umnummerieren.
 
-Der Worker installiert nur, wenn die HTML-Metadaten dieselbe Version wie RELEASE.version melden und alle benötigten Dateien erreichbar sind. Bei Fehlern bleibt die bisherige Version erhalten.
-Die aktive PWA lädt ihr gespeichertes HTML bis zur bestätigten Aktivierung eines Updates. Einfaches Neuladen überspringt daher kein wartendes Update; dafür die Glocke verwenden.
-Offline kann kein neuer Serverstand geprüft werden. Ein bereits fertig heruntergeladenes Update kann aber offline aktiviert werden.
+Nach der Veröffentlichung:
+- Erfolgreiche Veröffentlichung bei GitHub Pages abwarten.
+- Glocke öffnen und auf Updates prüfen. Ein gefundener Serverstand ist noch nicht zwingend vollständig installationsbereit.
+- Erst ein vollständig bereitstehendes Update nach Bestätigung aktivieren. Dabei geht die laufende Partie verloren; gespeicherte Einstellungen bleiben normalerweise erhalten.
+- Wenn die PWA weiter einen alten Stand anzeigt, die Versions- und Fehlerangaben in der Glocke prüfen.
+- update.html ist die separate Update-Hilfsseite. Sie ist kein Spiel und benötigt eine Online-Verbindung für neue Downloads.
+- Andere offene App-Fenster können noch auf einem älteren Seitenstand laufen, bis sie neu geladen werden.
+
+Offline:
+- Eine neue Serverversion lässt sich offline nicht prüfen oder herunterladen.
+- Eine zuvor vollständig gespeicherte App bleibt lokal nutzbar, solange der Browser ihre Daten nicht entfernt.
+- Laufende Partien und geheime Informationen werden nicht als wiederherstellbare Spielstände gespeichert.
