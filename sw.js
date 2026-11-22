@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.8.4",
+    "changes": {
+      "de": [
+        "Kniffeln: Syntaxfehler im Spiel-Skript behoben; das Kniffel-Menü lässt sich im Hauptmenü wieder öffnen."
+      ],
+      "en": [
+        "Yahtzee: fixed a script syntax error; the Yahtzee menu opens again from the main menu."
+      ]
+    }
+  },
+  {
     "version": "5.8.3",
     "changes": {
       "de": [
