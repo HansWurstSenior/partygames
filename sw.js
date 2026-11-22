@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.8.1",
+    "changes": {
+      "de": [
+        "Kniffeln: Startbutton im Hauptmenü repariert, sodass sich das Spiel auf allen Geräten zuverlässig öffnen lässt."
+      ],
+      "en": [
+        "Yahtzee: fixed the main menu start button so the game opens reliably on all devices."
+      ]
+    }
+  },
+  {
     "version": "5.8.0",
     "changes": {
       "de": [
