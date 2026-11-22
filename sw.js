@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.8.2",
+    "changes": {
+      "de": [
+        "Kniffeln: Tab-Auswahl und Startbutton durch Capture-Event-Delegation und sauberes Attribut-Handling abgesichert."
+      ],
+      "en": [
+        "Yahtzee: hardened tab switching and start button with capture event delegation and clean attribute handling."
+      ]
+    }
+  },
+  {
     "version": "5.8.1",
     "changes": {
       "de": [
