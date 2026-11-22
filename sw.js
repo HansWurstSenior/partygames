@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.8.6",
+    "changes": {
+      "de": [
+        "Kniffeln: Syntaxfehler in der Würfelbeschriftung behoben, der die Initialisierung und den Menüaufruf des Spiels verhindert hat.",
+        "Doppelte Start-Verknüpfungen entfernt; ein erneuter Öffnungsaufruf setzt eine bereits geöffnete Partie nicht mehr zurück."
+      ],
+      "en": [
+        "Yahtzee: fixed a syntax error in dice labels that prevented the game from initializing and opening.",
+        "Removed duplicate start bindings; opening an already open game no longer resets the current session."
+      ]
+    }
+  },
+  {
     "version": "5.8.5",
     "changes": {
       "de": [
