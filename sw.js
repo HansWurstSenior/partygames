@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.9.1",
+    "changes": {
+      "de": [
+        "Kniffeln: Beide Spielvarianten („Komplett digital spielen“ und „Eigener Würfelbecher / Kniffel-Block“) stehen nun direkt im Hauptmenü zur Auswahl."
+      ],
+      "en": [
+        "Yahtzee: both modes (“Full digital” and “Own dice cup / Score sheet”) are now selectable directly from the main menu."
+      ]
+    }
+  },
+  {
     "version": "5.9.0",
     "changes": {
       "de": [
