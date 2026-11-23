@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.9.5",
+    "changes": {
+      "de": [
+        "Kniffeln: Korrekturfunktion („Letzten Eintrag korrigieren“) ergänzt, um versehentliche Feld- oder Punkteinträge rückgängig zu machen.",
+        "Hauptmenü: Kniffeln-Auswahlbuttons im Dark-Mode an das dunkle Design angeglichen."
+      ],
+      "en": [
+        "Yahtzee: added undo correction (“Undo last entry”) to revert accidental category or score entries.",
+        "Main menu: styled Yahtzee mode buttons consistently in dark mode."
+      ]
+    }
+  },
+  {
     "version": "5.9.4",
     "changes": {
       "de": [
