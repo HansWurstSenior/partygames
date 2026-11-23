@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.9.8",
+    "changes": {
+      "de": [
+        "Namenseingabe: Zusätzlichen „Ändern“-Button in allen Spielen entfernt; beim Antippen eines Namensfelds wird überall direkt der komplette Name markiert."
+      ],
+      "en": [
+        "Name inputs: removed the extra “Edit” button across all games; focusing any player name field now automatically selects the entire name for easy overwriting."
+      ]
+    }
+  },
+  {
     "version": "5.9.7",
     "changes": {
       "de": [
