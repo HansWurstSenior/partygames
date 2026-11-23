@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.9.9",
+    "changes": {
+      "de": [
+        "Kniffeln: Im Kniffel-Block steht nach Auswahl des Folge-Kniffel-Bonus in der Standardregel (+100 Pkt. & Feld streichen) bei anderen Feldern nur noch „0 (Streichen)“ zur Auswahl."
+      ],
+      "en": [
+        "Yahtzee: on the score sheet, after adding an extra Yahtzee bonus under the default rule (+100 pts & scratch box), other categories only offer “0 (Scratch)”."
+      ]
+    }
+  },
+  {
     "version": "5.9.8",
     "changes": {
       "de": [
