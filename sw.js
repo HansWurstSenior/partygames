@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.9.4",
+    "changes": {
+      "de": [
+        "Kniffeln: CSV-Export und CSV-Import für beide Spielvarianten ergänzt, um gespielte Runden zu sichern oder unterbrochene Partien fortzusetzen."
+      ],
+      "en": [
+        "Yahtzee: added CSV export and import for both modes to save completed rounds or resume interrupted games."
+      ]
+    }
+  },
+  {
     "version": "5.9.3",
     "changes": {
       "de": [
