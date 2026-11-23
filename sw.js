@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.9.6",
+    "changes": {
+      "de": [
+        "Hauptmenü: Dark-Mode-Darstellung der beiden Kniffeln-Buttons zuverlässig auf dunkle Flächen und helle Schrift umgestellt."
+      ],
+      "en": [
+        "Main menu: reliably applied dark styling and light text to both Yahtzee mode buttons in dark mode."
+      ]
+    }
+  },
+  {
     "version": "5.9.5",
     "changes": {
       "de": [
