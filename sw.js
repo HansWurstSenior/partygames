@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.9.3",
+    "changes": {
+      "de": [
+        "Kniffeln: Regel „+100 Pkt. & Feld streichen (0)“ als Standard bei beiden Spielvarianten gesetzt (weitere Varianten bleiben vor Spielstart wählbar)."
+      ],
+      "en": [
+        "Yahtzee: set “+100 pts & scratch box (0)” as default for both modes (other options remain selectable before game start)."
+      ]
+    }
+  },
+  {
     "version": "5.9.2",
     "changes": {
       "de": [
