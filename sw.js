@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.9.2",
+    "changes": {
+      "de": [
+        "Kniffeln: Vor Spielstart wählbare Sonderregel für mehrere Kniffel ergänzt (Joker + 100 Pkt., +50 Pkt. & freies Feld oder ohne Zusatzbonus)."
+      ],
+      "en": [
+        "Yahtzee: added pre-game option for multiple-Yahtzee rules (Joker + 100 pts, +50 pts & any open box, or no extra bonus)."
+      ]
+    }
+  },
+  {
     "version": "5.9.1",
     "changes": {
       "de": [
