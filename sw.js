@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "5.9.7",
+    "changes": {
+      "de": [
+        "Hauptmenü: Dark-Mode-Stil der Spiel-Buttons einheitlich für alle sechs Spiele auf dunkle Flächen und helle Schrift gesetzt."
+      ],
+      "en": [
+        "Main menu: unified dark-mode button styling across all six games with dark surfaces and light text."
+      ]
+    }
+  },
+  {
     "version": "5.9.6",
     "changes": {
       "de": [
