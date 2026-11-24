@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.0.1",
+    "changes": {
+      "de": [
+        "Perudo: Doppelte Würfelreihe entfernt, Würfel in 3er-/2er-Gruppen im dunklen Becher-Schatten angeordnet (Becher leicht versetzt) und Wurf beim Anheben des Bechers ausgelöst."
+      ],
+      "en": [
+        "Perudo: removed duplicate dice row, clustered dice in 3/2 rows inside the dark cup shadow with cup slightly offset, and rolled dice when lifting the cup."
+      ]
+    }
+  },
+  {
     "version": "6.0.0",
     "changes": {
       "de": [
