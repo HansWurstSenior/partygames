@@ -18,7 +18,7 @@ Ein Kommunikations- und Bluffspiel mit einem geheimen Begriff. Fast alle kennen 
 
 ### Werwolf / Werewolf
 
-Ein Rollen- und Deduktionsspiel zwischen Dorf und Werwölfen. Geheime Rollen, wechselnde Tag- und Nachtphasen sowie besondere Fähigkeiten sorgen für Diskussion und Verdacht. Die Anwendung unterstützt die Rollenverteilung und führt durch die Spielabläufe.
+Ein Rollen- und Deduktionsspiel zwischen Dorf und Werwölfen. Geheime Rollen, wechselnde Tag- und Nachtphasen sowie besondere Fähigkeiten sorgen für Diskussion und Verdacht. Die Anwendung unterstützt die Rollenverteilung mit farbigen Spielernamen und führt durch die Spielabläufe.
 
 ### Secret Hitler
 
@@ -26,20 +26,28 @@ Ein Deduktionsspiel mit geheimen Teams, Regierungsbildung und politischen Entsch
 
 ### Meiern / Mia
 
-Das Würfel- und Bluffspiel ist auch als Mäxchen, Mäxle oder Lügenmax bekannt. Unter einem animierten Becher werden zwei Würfel geworfen; anschließend wird ehrlich, vorsichtig oder frei erfunden ein Wert angesagt. Die nächste Person glaubt, gibt blind weiter oder zweifelt an. Gespielt wird offline mit menschlichen Mitspielern an einem Gerät – wahlweise mit Leben und Ausscheiden oder im optionalen Trinkmodus ohne Ausscheiden.
+Das Würfel- und Bluffspiel ist auch als Mäxchen, Mäxle oder Lügenmax bekannt. Mit farbigen Würfeln und Wurfanimation wird verdeckt gewürfelt; anschließend wird ehrlich, vorsichtig oder frei erfunden ein Wert angesagt. Die nächste Person glaubt, gibt blind weiter oder zweifelt vor dem eigenen Wurf an. Gespielt wird offline mit menschlichen Mitspielern an einem Gerät – wahlweise mit Leben und Ausscheiden oder im optionalen Trinkmodus ohne Ausscheiden.
 
 Der Trinkmodus richtet sich an Volljährige. Teilnahme ist freiwillig; alkoholfreie Getränke sind genauso möglich. Eine Trinkaufforderung kann ausgelassen werden.
+
+### Kniffeln / Yahtzee
+
+Der Würfelklassiker für 1–8 Spieler mit vollständigem Wertungsblock, 63er-Bonus und wählbaren Folge-Kniffel-Regeln. Spielbar komplett digital mit fünf Würfeln inklusive Halten und optionalem Schütteln oder als digitaler Kniffel-Block für eigene Würfel am Tisch – samt CSV-Export und -Import zum Sichern oder Fortsetzen von Partien.
+
+### Perudo
+
+Das Würfel- und Bluffspiel (Liar's Dice) für 2–6 Spieler mit farbigen Würfeln, geheimer Würfelansicht, steigenden Geboten auf die Gesamtzahl aller Würfel am Tisch sowie den Ansagen *Dudo!* (Anzweifeln) und optional *Calza!* (Genau) und der Sonderrunde *Palifico*.
 
 ## Gemeinsam spielen
 
 - Spielregeln sind direkt in der Anwendung nachlesbar.
 - Geheime Informationen werden in privaten Ansichten gezeigt und bei der vorgesehenen Übergabe verdeckt.
-- Sprach- und Farbschema-Auswahl sowie verschiedene Vorbereitungseinstellungen werden lokal auf dem Gerät gespeichert.
+- Sprach- und Farbschema-Auswahl sowie verschiedene Vorbereitungseinstellungen und Spielernamen werden lokal auf dem Gerät gespeichert.
 - Die Anwendung lässt sich in unterstützten Browsern als Progressive Web App installieren.
 - Nach erfolgreicher Einrichtung sind die lokalen Spielmodi auch offline nutzbar. Online-Partien benötigen eine Internetverbindung.
 - Aktualisierungen und Änderungshinweise sind über die Update-Glocke erreichbar.
 
-Laufende Partien sind nicht als dauerhaft gespeicherte Spielstände gedacht. Ein vollständiges Neuladen oder Schließen kann die aktuelle Partie beenden. Die jeweiligen Anleitungen in der Anwendung beschreiben Spielvarianten und Besonderheiten.
+Laufende Partien sind nicht als dauerhaft gespeicherte Spielstände gedacht (bei Kniffeln steht zusätzlich ein CSV-Export/-Import zur Verfügung). Ein vollständiges Neuladen oder Schließen kann die aktuelle Partie beenden. Die jeweiligen Anleitungen in der Anwendung beschreiben Spielvarianten und Besonderheiten.
 
 ## Ein offenes Spieleprojekt
 

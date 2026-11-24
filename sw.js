@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.1.6",
+    "changes": {
+      "de": [
+        "Meiern: 2-Würfel-Zitteranimation beim Würfeln bei jedem Zug zuverlässig ausgelöst.",
+        "Perudo: Dudo und Calza nach dem Würfeln für alle Spieler deaktiviert.",
+        "Werwolf: Farbige Spielernamen und Akzentfärbungen ergänzt."
+      ],
+      "en": [
+        "Mia: ensured the 2-die wobble animation triggers reliably on every roll.",
+        "Perudo: disabled Dudo and Calza after rolling for all players.",
+        "Werewolf: added colored player names and accent styling."
+      ]
+    }
+  },
+  {
     "version": "6.1.5",
     "changes": {
       "de": [
