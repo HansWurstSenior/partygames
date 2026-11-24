@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.1.4",
+    "changes": {
+      "de": [
+        "Meiern: Direkte Ansage-Auswahl auf demselben Screen wie die Würfel (ohne Extra-Zwischenschritt) und 2-Würfel-Animation wie in Perudo."
+      ],
+      "en": [
+        "Mia: integrated bid buttons directly on the dice screen (skipping the extra cover step) with the 2-die wobble animation like Perudo."
+      ]
+    }
+  },
+  {
     "version": "6.1.3",
     "changes": {
       "de": [
