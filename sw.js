@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.1.1",
+    "changes": {
+      "de": [
+        "Perudo: Übergabe-Bildschirm mit vorheriger Ansage und Schüttelsperre ergänzt, damit beim Weitergeben des Smartphones kein versehentlicher Wurf ausgelöst wird."
+      ],
+      "en": [
+        "Perudo: added a handoff screen showing the previous bid with shake-to-roll locked until the next player taps Continue."
+      ]
+    }
+  },
+  {
     "version": "6.1.0",
     "changes": {
       "de": [
