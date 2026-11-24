@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.1.0",
+    "changes": {
+      "de": [
+        "Perudo: Würfelbecher entfernt, Kniffeln-Würfelreihe mit farbigen Würfeln, längerer Zitteranimation und Schüttel-Sensorik übernommen."
+      ],
+      "en": [
+        "Perudo: removed cups and adopted Yahtzee's top dice-row rolling mechanic with colored dice, longer wobble animation, and shake-to-roll support."
+      ]
+    }
+  },
+  {
     "version": "6.0.3",
     "changes": {
       "de": [
