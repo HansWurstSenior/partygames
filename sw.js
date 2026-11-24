@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.0.0",
+    "changes": {
+      "de": [
+        "Neues Spiel Perudo (2–6 Spieler): farbige Würfelbecher und Würfel, Becheranimation + Würfelreihe sowie Dudo, Palifico und Calza."
+      ],
+      "en": [
+        "New game Perudo (2–6 players): colored cups and dice, cup animation + dice row, plus Dudo, Palifico and Calza."
+      ]
+    }
+  },
+  {
     "version": "5.9.9",
     "changes": {
       "de": [
