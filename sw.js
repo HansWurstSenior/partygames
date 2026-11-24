@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.1.3",
+    "changes": {
+      "de": [
+        "Perudo: Weiter-Button auf dem Übergabe-Screen repariert; Würfel zittern beim Würfeln und bleiben bis zum Tippen auf „Würfel aufdecken“ verdeckt.",
+        "Meiern: Zitteranimation beim Würfeln ergänzt und gefallene Würfel bis zum Tippen auf „Würfel aufdecken“ verdeckt gehalten."
+      ],
+      "en": [
+        "Perudo: fixed Continue button on handoff screen; dice wobble while rolling and stay hidden until tapping “Reveal dice”.",
+        "Mia: added dice wobble animation while rolling and kept rolled dice hidden until tapping “Reveal dice”."
+      ]
+    }
+  },
+  {
     "version": "6.1.2",
     "changes": {
       "de": [
