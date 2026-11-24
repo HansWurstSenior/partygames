@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.1.5",
+    "changes": {
+      "de": [
+        "Meiern: Farbige Spielerkarten und Würfel wie in Perudo ergänzt sowie „Anzweifeln“ nach dem Würfeln deaktiviert."
+      ],
+      "en": [
+        "Mia: added colored player cards and dice like Perudo and disabled Challenge after rolling."
+      ]
+    }
+  },
+  {
     "version": "6.1.4",
     "changes": {
       "de": [
