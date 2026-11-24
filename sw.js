@@ -1,6 +1,28 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.0.3",
+    "changes": {
+      "de": [
+        "Namensgedächtnis: Eingetippte Spielernamen werden nun auch bei Perudo sowie den weiteren Partyspielen dauerhaft gespeichert."
+      ],
+      "en": [
+        "Name memory: entered player names are now persisted across sessions in Perudo and the remaining party games as well."
+      ]
+    }
+  },
+  {
+    "version": "6.0.2",
+    "changes": {
+      "de": [
+        "Perudo: Der Name des aktiven Spielers wird nun gebogen als Gravur auf dem farbigen Würfelbecher angezeigt."
+      ],
+      "en": [
+        "Perudo: the active player's name is now engraved along a curve on their colored dice cup."
+      ]
+    }
+  },
+  {
     "version": "6.0.1",
     "changes": {
       "de": [
