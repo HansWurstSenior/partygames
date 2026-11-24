@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.1.2",
+    "changes": {
+      "de": [
+        "Perudo: Weiter-Button auf dem Übergabe-Bildschirm repariert.",
+        "Meiern: Würfelbecher entfernt und durch wackelnde Würfel-Slots sowie den Übergabe-Bildschirm mit vorheriger Ansage und Schüttelsperre wie in Perudo ersetzt."
+      ],
+      "en": [
+        "Perudo: fixed the Continue button on the handoff screen.",
+        "Mia: removed the cup and adopted the wobbling dice slots and handoff screen with previous bid and shake lock from Perudo."
+      ]
+    }
+  },
+  {
     "version": "6.1.1",
     "changes": {
       "de": [
