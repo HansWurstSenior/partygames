@@ -1,6 +1,23 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.2.1",
+    "changes": {
+      "de": [
+        "Übersetzung verarbeitet DOM-Änderungen inkrementell und bündelt Namensabfragen je Durchlauf; vollständiger Sprachwechsel bleibt synchron möglich.",
+        "Spielvorbereitung erstellt Spielerzeilen in einem Durchlauf; Tab- und Bildschirmnavigation prüfen Ziele und vermeiden unnötige Zustandsänderungen.",
+        "Service Worker in klar abgegrenzte Funktionen aufgeteilt: begrenzte Wiederholungen, release-sichere manuelle Aktualisierung, Offline-Fallback und nachträgliches Caching optionaler Dateien.",
+        "Öffentliche Aufrufe, DOM-IDs, Speicherformate und Spielregeln beibehalten; keine neuen Laufzeitabhängigkeiten."
+      ],
+      "en": [
+        "Localization handles DOM changes incrementally and collects player names once per pass; full language switches remain synchronous.",
+        "Player setup builds rows in one pass; tab and screen navigation validate targets and avoid redundant state changes.",
+        "Refactored the service worker into clear functions: bounded retries, release-safe manual refresh, offline fallback and caching recovered optional assets.",
+        "Kept public calls, DOM IDs, stored formats and game rules; no new runtime dependencies."
+      ]
+    }
+  },
+  {
     "version": "6.2.0",
     "changes": {
       "de": [
@@ -564,63 +581,164 @@ const RELEASE={
   )
  ]))
 };
-const BASE=new URL(self.registration.scope);
-const CACHE='partygames-shell-'+encodeURIComponent(BASE.pathname)+'-'+RELEASE.version;
-const SHELL=['./index.html','./update.html','./manifest.webmanifest','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png'];
-const ENTRY=new URL('./index.html',BASE).href;
-async function releaseFetch(path,timeout){
- const url=new URL(path,BASE);url.searchParams.set('pg-release',RELEASE.version);url.searchParams.set('pg-request',Date.now().toString(36));
- const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);
- try{
-  const response=await fetch(url,{cache:'no-store',signal:controller.signal});if(!response.ok)throw Error('HTTP_'+response.status);
-  const body=await response.arrayBuffer(),headers=new Headers(response.headers);headers.delete('content-encoding');headers.delete('content-length');
-  return new Response(body,{status:response.status,statusText:response.statusText,headers});
- }
- finally{clearTimeout(timer)}
+const BASE = new URL(self.registration.scope);
+const CACHE_PREFIX = 'partygames-shell-' + encodeURIComponent(BASE.pathname) + '-';
+const CACHE = CACHE_PREFIX + RELEASE.version;
+const SHELL = [
+    './index.html', './update.html', './manifest.webmanifest',
+    './icons/icon-180.png', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png'
+];
+const ENTRY = new URL('./index.html', BASE).href;
+const ENTRY_PATH = new URL(ENTRY).pathname;
+const ASSET_URLS = new Set(SHELL.slice(1).map(path => new URL(path, BASE).href));
+const INSTALL_ATTEMPTS = 3;
+const RETRY_DELAY_MS = 1500;
+
+function belongsToApp(url) {
+    return url.origin === BASE.origin && url.pathname.startsWith(BASE.pathname);
 }
-self.addEventListener('install',event=>event.waitUntil((async()=>{
- try{
-  let response=null, found='';
-  for(let attempt=0;attempt<3;attempt++){
-   response=await releaseFetch('./index.html',20000);
-   const html=await response.clone().text();
-   const meta=(html.match(/<meta\b[^>]*>/gi)||[]).find(tag=>/name=["']application-version["']/i.test(tag));
-   found=meta?.match(/content=["']([^"']+)["']/i)?.[1]||'';
-   if(found===RELEASE.version)break;
-   if(attempt<2)await new Promise(r=>setTimeout(r,1500));
-  }
-  if(found!==RELEASE.version)throw Error('RELEASE_MISMATCH');
-  const cache=await caches.open(CACHE);await cache.put(ENTRY,response);
-  // The HTML contains the application. Branding assets and repair page are optional, not an update prerequisite.
-  await Promise.allSettled(SHELL.slice(1).map(async path=>{
-   const response=await releaseFetch(path,5000);await cache.put(new URL(path,BASE).href,response);
-  }));
- }catch(error){
-  const code=error.message==='RELEASE_MISMATCH'?'RELEASE_MISMATCH':'INSTALL_FAILED';
-  try{for(const client of await self.clients.matchAll({type:'window',includeUncontrolled:true})){
-   if(new URL(client.url).origin===BASE.origin&&new URL(client.url).pathname.startsWith(BASE.pathname))client.postMessage({type:'PARTYGAMES_INSTALL_ERROR',version:RELEASE.version,code});
-  }}catch(ignored){}
-  throw error;
- }
-})()));
-self.addEventListener('activate',event=>event.waitUntil((async()=>{
- // Do not delete other tabs' old caches while they may still run old HTML.
- await self.clients.claim();
- const windows=await self.clients.matchAll({type:'window',includeUncontrolled:true});
- const prefix='partygames-shell-'+encodeURIComponent(BASE.pathname)+'-';
- if(windows.filter(c=>new URL(c.url).origin===BASE.origin&&new URL(c.url).pathname.startsWith(BASE.pathname)).length<=1){
-  await Promise.all((await caches.keys()).filter(k=>k.startsWith(prefix)&&k!==CACHE).map(k=>caches.delete(k)));
- }
-})()));
-self.addEventListener('message',event=>{
- if(event.data?.type==='GET_RELEASE')event.ports[0]?.postMessage(RELEASE);
- if(event.data?.type==='SKIP_WAITING'&&(!event.data.version||event.data.version===RELEASE.version))event.waitUntil(self.skipWaiting());
+
+function applicationVersion(html) {
+    const tags = html.match(/<meta\b[^>]*>/gi) || [];
+    const versionTag = tags.find(tag => /\bname\s*=\s*["']application-version["']/i.test(tag));
+    return versionTag?.match(/\bcontent\s*=\s*["']([^"']+)["']/i)?.[1] || '';
+}
+
+async function releaseFetch(path, timeout) {
+    const url = new URL(path, BASE);
+    url.searchParams.set('pg-release', RELEASE.version);
+    url.searchParams.set('pg-request', Date.now().toString(36) + '-' + Math.random().toString(36).slice(2));
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeout);
+    try {
+        const response = await fetch(url, { cache: 'no-store', signal: controller.signal });
+        if (!response.ok) throw new Error('HTTP_' + response.status);
+        const body = await response.arrayBuffer();
+        const headers = new Headers(response.headers);
+        headers.delete('content-encoding');
+        headers.delete('content-length');
+        return new Response(body, { status: response.status, statusText: response.statusText, headers });
+    } finally {
+        clearTimeout(timer);
+    }
+}
+
+async function fetchMatchingEntry() {
+    let lastError;
+    for (let attempt = 0; attempt < INSTALL_ATTEMPTS; attempt++) {
+        try {
+            const response = await releaseFetch('./index.html', 20000);
+            if (applicationVersion(await response.clone().text()) !== RELEASE.version) {
+                throw new Error('RELEASE_MISMATCH');
+            }
+            return response;
+        } catch (error) {
+            lastError = error;
+            if (attempt + 1 < INSTALL_ATTEMPTS) {
+                await new Promise(resolve => setTimeout(resolve, RETRY_DELAY_MS));
+            }
+        }
+    }
+    throw lastError;
+}
+
+async function notifyInstallationError(error) {
+    const code = error?.message === 'RELEASE_MISMATCH' ? 'RELEASE_MISMATCH' : 'INSTALL_FAILED';
+    const clients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+    for (const client of clients) {
+        try {
+            if (belongsToApp(new URL(client.url))) {
+                client.postMessage({ type: 'PARTYGAMES_INSTALL_ERROR', version: RELEASE.version, code });
+            }
+        } catch (notificationError) {
+            console.warn('Unable to notify an app window:', notificationError);
+        }
+    }
+}
+
+async function installRelease() {
+    try {
+        const response = await fetchMatchingEntry();
+        const cache = await caches.open(CACHE);
+        await cache.put(ENTRY, response);
+        // Optional assets must not prevent installing the validated application shell.
+        await Promise.allSettled(SHELL.slice(1).map(async path => {
+            const asset = await releaseFetch(path, 5000);
+            await cache.put(new URL(path, BASE).href, asset);
+        }));
+    } catch (error) {
+        try { await notifyInstallationError(error); } catch (notificationError) {
+            console.warn('Installation error notification failed:', notificationError);
+        }
+        throw error;
+    }
+}
+
+async function activateRelease() {
+    await self.clients.claim();
+    const clients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+    const appWindows = clients.filter(client => {
+        try { return belongsToApp(new URL(client.url)); } catch (_) { return false; }
+    });
+    // Other open windows may still need their old release cache.
+    if (appWindows.length > 1) return;
+    const keys = await caches.keys();
+    await Promise.all(keys
+        .filter(key => key.startsWith(CACHE_PREFIX) && key !== CACHE)
+        .map(key => caches.delete(key)));
+}
+
+async function cachedAsset(request) {
+    const cache = await caches.open(CACHE);
+    const saved = await cache.match(request);
+    if (saved) return saved;
+    const response = await fetch(request);
+    if (response.ok) {
+        try { await cache.put(request, response.clone()); } catch (error) {
+            console.warn('Optional asset could not be cached:', error);
+        }
+    }
+    return response;
+}
+
+async function applicationNavigation(request, forceRefresh) {
+    const cache = await caches.open(CACHE);
+    const saved = await cache.match(ENTRY);
+    if (saved && !forceRefresh) return saved;
+    try {
+        const response = forceRefresh
+            ? await releaseFetch('./index.html', 20000)
+            : await fetch(request);
+        const sameRelease = applicationVersion(await response.clone().text()) === RELEASE.version;
+        // A manual refresh must not silently mix a new HTML release with the old shell.
+        if (!sameRelease && saved) return saved;
+        if (sameRelease && response.ok) {
+            try { await cache.put(ENTRY, response.clone()); } catch (error) {
+                console.warn('Application refresh could not be cached:', error);
+            }
+        }
+        return response;
+    } catch (error) {
+        if (saved) return saved;
+        throw error;
+    }
+}
+
+self.addEventListener('install', event => event.waitUntil(installRelease()));
+self.addEventListener('activate', event => event.waitUntil(activateRelease()));
+self.addEventListener('message', event => {
+    if (event.data?.type === 'GET_RELEASE') event.ports?.[0]?.postMessage(RELEASE);
+    if (event.data?.type === 'SKIP_WAITING' && (!event.data.version || event.data.version === RELEASE.version)) {
+        event.waitUntil(self.skipWaiting());
+    }
 });
-self.addEventListener('fetch',event=>{
- const req=event.request,url=new URL(req.url);
- if(req.method!=='GET'||url.origin!==BASE.origin||!url.pathname.startsWith(BASE.pathname))return;
- if(req.mode==='navigate'&&(url.pathname===BASE.pathname||url.pathname===new URL(ENTRY).pathname)){
-  event.respondWith((async()=>{const c=await caches.open(CACHE);return await c.match(ENTRY)||fetch(req)})());return;
- }
- if(SHELL.slice(1).some(p=>new URL(p,BASE).href===url.href))event.respondWith((async()=>{const c=await caches.open(CACHE);return await c.match(req)||fetch(req)})());
+self.addEventListener('fetch', event => {
+    const request = event.request;
+    const url = new URL(request.url);
+    if (request.method !== 'GET' || !belongsToApp(url)) return;
+    if (request.mode === 'navigate' && (url.pathname === BASE.pathname || url.pathname === ENTRY_PATH)) {
+        event.respondWith(applicationNavigation(request, url.searchParams.has('_collection_reload')));
+    } else if (ASSET_URLS.has(url.href)) {
+        event.respondWith(cachedAsset(request));
+    }
 });
