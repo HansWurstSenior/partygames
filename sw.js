@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.3.7",
+    "changes": {
+      "de": [
+        "Werwolf: Die Seite springt bei der Stimmenabgabe in der Dorfversammlung nicht mehr nach oben; Scrollposition und Fokus bleiben erhalten. Gleiches gilt für Opfer- und Trankauswahl in der Nacht."
+      ],
+      "en": [
+        "Werewolf: the page no longer jumps to the top when entering votes in the village council; scroll position and focus are kept. The same applies to victim and potion selection at night."
+      ]
+    }
+  },
+  {
     "version": "6.3.6",
     "changes": {
       "de": [
