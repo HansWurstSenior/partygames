@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.1.7",
+    "changes": {
+      "de": [
+        "Code-Bereinigung: Doppeltes Hochstapler-Regelskript sowie ungenutzten Modus-Handler in Kniffeln entfernt.",
+        "Stabilität: Fokus-Aufrufe nach Ansichts- und Renderwechseln abgesichert und Versions-/Spielbeschreibungen vereinheitlicht."
+      ],
+      "en": [
+        "Code cleanup: removed duplicate Impostor rules script and unused mode handler in Yahtzee.",
+        "Stability: guarded focus calls after view and render transitions and unified version and game descriptions."
+      ]
+    }
+  },
+  {
     "version": "6.1.6",
     "changes": {
       "de": [
