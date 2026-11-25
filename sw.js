@@ -1,6 +1,23 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.1.9",
+    "changes": {
+      "de": [
+        "Schwimmen wieder erreichbar: ein zu früh geschlossener Menücontainer bei Perudo wurde korrigiert. Lokale und Online-Vorbereitung sowie Spielfeld liegen wieder im App-Rahmen.",
+        "Perudo korrekt in das gemeinsame Panel-Raster eingeordnet; Installation und Versionszeile wieder Teil des Hauptmenüs.",
+        "Wirkungslosen Sichtbarkeits-Workaround entfernt. Ungültige Bildschirmziele werden zurückgewiesen, ohne die aktuelle Ansicht zu verstecken.",
+        "Struktur- und Browserprüfungen für beide Schwimmen-Einstiege ergänzt."
+      ],
+      "en": [
+        "Thirty-One is accessible again: corrected a prematurely closed menu container near Perudo. Local and online setup and the table are back inside the app frame.",
+        "Restored Perudo to the shared panel grid and kept installation and version information inside the main menu.",
+        "Removed an ineffective visibility workaround. Invalid screen targets are rejected without hiding the current view.",
+        "Added structural and browser checks for both Thirty-One entry points."
+      ]
+    }
+  },
+  {
     "version": "6.1.8",
     "changes": {
       "de": [
