@@ -1755,12 +1755,20 @@ function escapeHTML(str) {
             cancelCardSwipe();
             closeFirstTurnKnockInfo();
             ['screen-menu', 'screen-setup-local', 'screen-setup-internet', 'screen-game'].forEach(id => {
-                document.getElementById(id).classList.add('hidden');
+                const el = document.getElementById(id);
+                if (el) el.classList.add('hidden');
             });
-            document.getElementById(screenId).classList.remove('hidden');
-            document.documentElement.setAttribute('data-app-screen',screenId);window.CollectionNav?.sync();
-            if(screenId!=='screen-setup-internet')cancelRoomSearch();
-            if(screenId==='screen-setup-internet')prefillOnlineNames();
+            const target = document.getElementById(screenId);
+            if (target) {
+                target.classList.remove('hidden');
+                target.scrollTop = 0;
+            }
+            const appEl = document.getElementById('app');
+            if (appEl) appEl.scrollTop = 0;
+            document.documentElement.setAttribute('data-app-screen', screenId);
+            window.CollectionNav?.sync();
+            if (screenId !== 'screen-setup-internet') cancelRoomSearch();
+            if (screenId === 'screen-setup-internet') prefillOnlineNames();
             if (screenId === 'screen-setup-internet') {
                 ensurePeerLib();
             }
