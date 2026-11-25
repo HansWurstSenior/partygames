@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.3.1",
+    "changes": {
+      "de": [
+        "Gemeinsame Release-Einträge ab Version 6.1.9 in einem zentralen Template gebündelt statt siebenfach in index.html zu duplizieren.",
+        "Übersetzungs-Dictionary für Version 6.3.0 und 6.3.1 vollständig auf Deutsch und Englisch abgeglichen.",
+        "Automatische Konsistenzprüfung für Version, Titel, Log-Templates und Dictionary-Abdeckung ergänzt."
+      ],
+      "en": [
+        "Bundled shared release entries from version 6.1.9 onward into a single template instead of duplicating them seven times in index.html.",
+        "Aligned the translation dictionary for versions 6.3.0 and 6.3.1 completely across German and English.",
+        "Added automated consistency verification for version, title, log templates, and dictionary coverage."
+      ]
+    }
+  },
+  {
     "version": "6.3.0",
     "changes": {
       "de": [
@@ -9,7 +24,7 @@ const RELEASE_HISTORY=[
         "Versionshinweise, Netzwerk-Protokollmeldungen, Manifest und Service-Worker-Cache vollständig auf 6.3.0 abgeglichen."
       ],
       "en": [
-        "Consolidated all seven game modules (Thirty-One, Impostor, Werewolf, Secret Hitler, Mia, Yahtzee, Perudo) to version 6.3.0.",
+        "Consolidated all seven game modules (Thirty-One, Impostor, Werewolf, Secret Hitler, Mia, Yahtzee, Perudo) to version 6.3.0 and added distinct role icons for Liberal, Fascist, and Hitler in Secret Hitler.",
         "Unified shared helpers for HTML escaping, player colors, and focus safety across all modules.",
         "Aligned version labels, network protocol messages, manifest, and service worker cache to 6.3.0."
       ]
