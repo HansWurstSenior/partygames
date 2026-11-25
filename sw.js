@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.3.2",
+    "changes": {
+      "de": [
+        "Konfetti-Sieganimation und Fanfare aus Schwimmen auch in Kniffeln, Perudo, Meiern, Secret Hitler und Hochstapler integriert.",
+        "Aufklappbaren Runden- und Gesetzesverlauf sowie direkte Revanche-Buttons für Perudo, Meiern und Secret Hitler auf dem Endbildschirm ergänzt."
+      ],
+      "en": [
+        "Integrated the confetti victory animation and fanfare from Thirty-One into Yahtzee, Perudo, Mia, Secret Hitler, and Impostor.",
+        "Added collapsible round and policy history plus direct rematch buttons for Perudo, Mia, and Secret Hitler on the end screen."
+      ]
+    }
+  },
+  {
     "version": "6.3.1",
     "changes": {
       "de": [
