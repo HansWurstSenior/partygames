@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.3.4",
+    "changes": {
+      "de": [
+        "Werwolf: Geführter Spielablauf für die Spielleitung mit Einleitungstext, Nacht-Reihenfolge, Tagesanbruch-Bekanntgabe, Diskussionsrunde sowie Abstimmung und Verbannung in der Dorfversammlung ergänzt."
+      ],
+      "en": [
+        "Werewolf: added a guided moderator flow with opening narration, night turn order, dawn death announcement, discussion phase, and village council voting and banishment."
+      ]
+    }
+  },
+  {
     "version": "6.3.3",
     "changes": {
       "de": [
