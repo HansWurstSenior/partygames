@@ -1,6 +1,23 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.2.2",
+    "changes": {
+      "de": [
+        "Perudo: Alle verbliebenen Würfel werden nur einmal am Rundenanfang geworfen und bleiben während der Gebotsfolge unverändert.",
+        "Nach der Übergabebestätigung sind Erhöhen, Dudo und optional Calza sofort erreichbar. Eigene Würfel dürfen ohne erneutes Würfeln angesehen werden.",
+        "Auflösungen zeigen die ursprünglichen Würfel vor Verlust oder Rückgewinn. Unterbrechungen verdecken private Würfel, ohne Ergebnisse zu ändern.",
+        "Reguläres Update von 6.2.1; keine Downgrade- oder Sonderinstallation erforderlich."
+      ],
+      "en": [
+        "Perudo: roll all remaining dice once at the start of the round and keep results unchanged throughout bidding.",
+        "After handoff confirmation, raise, Dudo and optional Calza are immediately available. View your own dice without rerolling.",
+        "Showdowns display the original dice before losses or recovery. Interruptions conceal private dice without changing results.",
+        "Regular update from 6.2.1; no downgrade or special installation required."
+      ]
+    }
+  },
+  {
     "version": "6.2.1",
     "changes": {
       "de": [
