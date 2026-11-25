@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.2.3",
+    "changes": {
+      "de": [
+        "Update-Dialog: kurze Vorschau der neuesten Änderungen, vollständige Hinweise über „Mehr anzeigen“.",
+        "Aktualisieren, Prüfen und Später bleiben außerhalb des scrollbaren Inhalts sichtbar – auch bei aufgeklapptem Verlauf.",
+        "Vollständige Änderungslisten werden erst beim Ausklappen aufgebaut; Deutsch, Englisch und Dark Theme bleiben unterstützt."
+      ],
+      "en": [
+        "Update dialog: short preview of the latest changes, with complete notes under “Show more”.",
+        "Update, Check and Later remain outside the scrolling content, including when the history is expanded.",
+        "Complete change lists are built only when expanded; German, English and Dark Theme remain supported."
+      ]
+    }
+  },
+  {
     "version": "6.2.2",
     "changes": {
       "de": [
