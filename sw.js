@@ -4,7 +4,7 @@ const RELEASE_HISTORY=[
     "version": "6.3.0",
     "changes": {
       "de": [
-        "Alle sieben Spielmodule (Schwimmen, Hochstapler, Werwolf, Secret Hitler, Meiern, Kniffeln, Perudo) auf Version 6.3.0 konsolidiert.",
+        "Alle sieben Spielmodule (Schwimmen, Hochstapler, Werwolf, Secret Hitler, Meiern, Kniffeln, Perudo) auf Version 6.3.0 konsolidiert und eindeutige Rollensymbole für Secret Hitler ergänzt.",
         "Gemeinsame Hilfsfunktionen für HTML-Escaping, Spielerfarben und Fokus-Sicherheit über alle Module vereinheitlicht.",
         "Versionshinweise, Netzwerk-Protokollmeldungen, Manifest und Service-Worker-Cache vollständig auf 6.3.0 abgeglichen."
       ],
