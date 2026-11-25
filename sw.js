@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.3.5",
+    "changes": {
+      "de": [
+        "Werwolf: Namen in privaten Spielleitungs-Auswahlen zeigen die zugehörige Rolle, unter anderem bei Nachtopfer, Hexentränken, Verliebten und Ausscheidungsbestätigung.",
+        "Dorfübersicht und Abstimmung können Rollen nach ausdrücklicher Spielleitungsbestätigung einblenden; öffentliche Karten und die Rollenverteilung bleiben verdeckt.",
+        "Rollen-Einblendung wird bei Unterbrechung oder Wechsel in eine andere Ansicht zurückgesetzt. Rückkehr zur Dorfübersicht im geführten Ablauf korrigiert."
+      ],
+      "en": [
+        "Werewolf: names in private moderator selections include their role, including night victim, witch potions, lovers and elimination confirmation.",
+        "Village overview and voting can show roles after explicit moderator confirmation; public cards and initial role distribution remain concealed.",
+        "Moderator role revelation resets on interruption or when leaving the view. Fixed returning to the village overview in the guided flow."
+      ]
+    }
+  },
+  {
     "version": "6.3.4",
     "changes": {
       "de": [
