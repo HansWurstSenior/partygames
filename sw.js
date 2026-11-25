@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.2.0",
+    "changes": {
+      "de": [
+        "Farbige Spielernamen in allen Spielen: Hochstapler, Secret Hitler, Schwimmen und Kniffeln zeigen nun wie Werwolf, Meiern und Perudo feste Spielerfarben in Vorbereitung, Spielansicht und Auswertung.",
+        "Namensgedächtnis geprüft und abgesichert: Eingegebene Spielernamen bleiben in allen sieben Partyspielen über Sitzungen hinweg gespeichert; versehentlich geleerte Felder fallen beim Neuladen sauber auf Standardnamen zurück."
+      ],
+      "en": [
+        "Colored player names across all games: Impostor, Secret Hitler, Thirty-One, and Yahtzee now display distinct player colors in setup, gameplay, and results just like Werewolf, Mia, and Perudo.",
+        "Name memory verified and hardened: entered player names persist across sessions in all seven party games, while accidentally cleared fields safely fall back to default names on reload."
+      ]
+    }
+  },
+  {
     "version": "6.1.9",
     "changes": {
       "de": [
