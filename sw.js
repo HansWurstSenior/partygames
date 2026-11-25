@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.3.6",
+    "changes": {
+      "de": [
+        "Werwolf: Nacht-Reihenfolge als nebeneinanderliegende Tabs mit festem Tab-Leiste und fester Aktionsleiste, damit weniger gescrollt werden muss.",
+        "Seherin: Spielerliste mit Rollen und Lebend-/Tot-Status direkt im Seherin-Schritt.",
+        "Private Nachtauswahlen werden bei App-Unterbrechung verdeckt und erst nach Spielleitungs-Bestätigung wieder angezeigt."
+      ],
+      "en": [
+        "Werewolf: night order shown as side-by-side tabs with a fixed tab bar and fixed action bar to reduce scrolling.",
+        "Seer: player list with roles and alive/dead status directly in the Seer step.",
+        "Private night selections are concealed when the app is interrupted and shown again only after moderator confirmation."
+      ]
+    }
+  },
+  {
     "version": "6.3.5",
     "changes": {
       "de": [
