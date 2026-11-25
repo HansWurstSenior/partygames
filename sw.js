@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.3.0",
+    "changes": {
+      "de": [
+        "Alle sieben Spielmodule (Schwimmen, Hochstapler, Werwolf, Secret Hitler, Meiern, Kniffeln, Perudo) auf Version 6.3.0 konsolidiert.",
+        "Gemeinsame Hilfsfunktionen für HTML-Escaping, Spielerfarben und Fokus-Sicherheit über alle Module vereinheitlicht.",
+        "Versionshinweise, Netzwerk-Protokollmeldungen, Manifest und Service-Worker-Cache vollständig auf 6.3.0 abgeglichen."
+      ],
+      "en": [
+        "Consolidated all seven game modules (Thirty-One, Impostor, Werewolf, Secret Hitler, Mia, Yahtzee, Perudo) to version 6.3.0.",
+        "Unified shared helpers for HTML escaping, player colors, and focus safety across all modules.",
+        "Aligned version labels, network protocol messages, manifest, and service worker cache to 6.3.0."
+      ]
+    }
+  },
+  {
     "version": "6.2.3",
     "changes": {
       "de": [
