@@ -1,13 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
-    "version": "6.3.7",
+    "version": "6.4.0",
     "changes": {
       "de": [
-        "Werwolf: Die Seite springt bei der Stimmenabgabe in der Dorfversammlung nicht mehr nach oben; Scrollposition und Fokus bleiben erhalten. Gleiches gilt für Opfer- und Trankauswahl in der Nacht."
+        "Hochstapler: Begriffsupdate-Modus mit optionaler Zusatzliste hochstapler-begriffe.json (100 neue Begriffe in den fünf bestehenden Kategorien). Die 100 eingebauten Begriffe bleiben unverändert.",
+        "Neue Auswahl „Begriffsquelle“ (eingebaut + Zusatz, nur eingebaut, nur Zusatz) und Button „Begriffe aktualisieren“ mit Statusanzeige. Die Liste wird geprüft, offline zwischengespeichert und kann um neue Kategorien erweitert werden.",
+        "Werwolf: Scrollposition bleibt bei Stimmeneingabe und Nachtauswahl erhalten."
       ],
       "en": [
-        "Werewolf: the page no longer jumps to the top when entering votes in the village council; scroll position and focus are kept. The same applies to victim and potion selection at night."
+        "Impostor: term update mode with an optional extra list hochstapler-begriffe.json (100 new terms across the five existing categories). The 100 built-in terms stay unchanged.",
+        "New “Term source” choice (built-in + extra, built-in only, extra only) and an “Update terms” button with status display. The list is validated, stored for offline use and can add new categories.",
+        "Werewolf: scroll position is kept while entering votes and night selections."
       ]
     }
   },
@@ -730,6 +734,9 @@ const SHELL = [
     './index.html', './update.html', './manifest.webmanifest',
     './icons/icon-180.png', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png'
 ];
+const TERMS_URL = new URL('./hochstapler-begriffe.json', BASE).href;
+const TERMS_PATH = new URL(TERMS_URL).pathname;
+const DATA_CACHE = 'partygames-data-' + encodeURIComponent(BASE.pathname);
 const ENTRY = new URL('./index.html', BASE).href;
 const ENTRY_PATH = new URL(ENTRY).pathname;
 const ASSET_URLS = new Set(SHELL.slice(1).map(path => new URL(path, BASE).href));
@@ -808,11 +815,39 @@ async function installRelease() {
             const asset = await releaseFetch(path, 5000);
             await cache.put(new URL(path, BASE).href, asset);
         }));
+        await Promise.allSettled([refreshTerms(5000)]);
     } catch (error) {
         try { await notifyInstallationError(error); } catch (notificationError) {
             console.warn('Installation error notification failed:', notificationError);
         }
         throw error;
+    }
+}
+
+// Optional content file: network first so edits appear quickly, saved copy when offline. It is not part of the versioned shell.
+async function refreshTerms(timeout) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeout);
+    try {
+        const response = await fetch(new Request(TERMS_URL, { cache: 'no-store' }), { signal: controller.signal });
+        if (response.ok) {
+            const cache = await caches.open(DATA_CACHE);
+            await cache.put(TERMS_URL, response.clone());
+        }
+        return response;
+    } finally {
+        clearTimeout(timer);
+    }
+}
+
+async function termsResponse() {
+    try {
+        return await refreshTerms(8000);
+    } catch (error) {
+        const cache = await caches.open(DATA_CACHE);
+        const saved = await cache.match(TERMS_URL);
+        if (saved) return saved;
+        return new Response('{}', { status: 504, statusText: 'Terms unavailable', headers: { 'Content-Type': 'application/json' } });
     }
 }
 
@@ -880,6 +915,8 @@ self.addEventListener('fetch', event => {
     if (request.method !== 'GET' || !belongsToApp(url)) return;
     if (request.mode === 'navigate' && (url.pathname === BASE.pathname || url.pathname === ENTRY_PATH)) {
         event.respondWith(applicationNavigation(request, url.searchParams.has('_collection_reload')));
+    } else if (url.pathname === TERMS_PATH) {
+        event.respondWith(termsResponse());
     } else if (ASSET_URLS.has(url.href)) {
         event.respondWith(cachedAsset(request));
     }

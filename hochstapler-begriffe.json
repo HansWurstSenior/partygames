@@ -1,0 +1,418 @@
+{
+  "format": 1,
+  "stand": "2026-11-26",
+  "hinweis": "Zusatzbegriffe für Hochstapler. Eintrag = {\"de\":\"…\",\"en\":\"…\"}. Neue Einträge einfach in der passenden Kategorie ergänzen; neue Kategorien als neuen Schlüssel anlegen (optional englischer Name unter kategorienamen_en). Datei im Repository hochladen und in Hochstapler auf 'Begriffe aktualisieren' tippen.",
+  "kategorienamen_en": {},
+  "kategorien": {
+    "Alltag": [
+      {
+        "de": "Hammer",
+        "en": "Hammer"
+      },
+      {
+        "de": "Schere",
+        "en": "Scissors"
+      },
+      {
+        "de": "Handtuch",
+        "en": "Towel"
+      },
+      {
+        "de": "Teppich",
+        "en": "Carpet"
+      },
+      {
+        "de": "Kamm",
+        "en": "Comb"
+      },
+      {
+        "de": "Zahnpasta",
+        "en": "Toothpaste"
+      },
+      {
+        "de": "Bügeleisen",
+        "en": "Iron"
+      },
+      {
+        "de": "Besen",
+        "en": "Broom"
+      },
+      {
+        "de": "Glühbirne",
+        "en": "Light bulb"
+      },
+      {
+        "de": "Armbanduhr",
+        "en": "Wristwatch"
+      },
+      {
+        "de": "Schlafanzug",
+        "en": "Pyjamas"
+      },
+      {
+        "de": "Gießkanne",
+        "en": "Watering can"
+      },
+      {
+        "de": "Steckdose",
+        "en": "Power socket"
+      },
+      {
+        "de": "Mülleimer",
+        "en": "Trash can"
+      },
+      {
+        "de": "Toaster",
+        "en": "Toaster"
+      },
+      {
+        "de": "Föhn",
+        "en": "Hair dryer"
+      },
+      {
+        "de": "Kleiderbügel",
+        "en": "Coat hanger"
+      },
+      {
+        "de": "Einkaufswagen",
+        "en": "Shopping cart"
+      },
+      {
+        "de": "Handschuhe",
+        "en": "Gloves"
+      },
+      {
+        "de": "Wasserkocher",
+        "en": "Kettle"
+      }
+    ],
+    "Essen & Trinken": [
+      {
+        "de": "Banane",
+        "en": "Banana"
+      },
+      {
+        "de": "Erdbeere",
+        "en": "Strawberry"
+      },
+      {
+        "de": "Apfelstrudel",
+        "en": "Apple strudel"
+      },
+      {
+        "de": "Kartoffelsalat",
+        "en": "Potato salad"
+      },
+      {
+        "de": "Bratwurst",
+        "en": "Bratwurst"
+      },
+      {
+        "de": "Müsli",
+        "en": "Muesli"
+      },
+      {
+        "de": "Joghurt",
+        "en": "Yogurt"
+      },
+      {
+        "de": "Limonade",
+        "en": "Lemonade"
+      },
+      {
+        "de": "Gurke",
+        "en": "Cucumber"
+      },
+      {
+        "de": "Tomatensuppe",
+        "en": "Tomato soup"
+      },
+      {
+        "de": "Kuchen",
+        "en": "Cake"
+      },
+      {
+        "de": "Brötchen",
+        "en": "Bread roll"
+      },
+      {
+        "de": "Marmelade",
+        "en": "Jam"
+      },
+      {
+        "de": "Rührei",
+        "en": "Scrambled eggs"
+      },
+      {
+        "de": "Knoblauch",
+        "en": "Garlic"
+      },
+      {
+        "de": "Waffel",
+        "en": "Waffle"
+      },
+      {
+        "de": "Döner",
+        "en": "Doner kebab"
+      },
+      {
+        "de": "Orangensaft",
+        "en": "Orange juice"
+      },
+      {
+        "de": "Lebkuchen",
+        "en": "Gingerbread"
+      },
+      {
+        "de": "Erdnussbutter",
+        "en": "Peanut butter"
+      }
+    ],
+    "Orte": [
+      {
+        "de": "Freizeitpark",
+        "en": "Amusement park"
+      },
+      {
+        "de": "Tankstelle",
+        "en": "Gas station"
+      },
+      {
+        "de": "Wald",
+        "en": "Forest"
+      },
+      {
+        "de": "Berg",
+        "en": "Mountain"
+      },
+      {
+        "de": "Hafen",
+        "en": "Harbour"
+      },
+      {
+        "de": "Rathaus",
+        "en": "Town hall"
+      },
+      {
+        "de": "Kirche",
+        "en": "Church"
+      },
+      {
+        "de": "Apotheke",
+        "en": "Pharmacy"
+      },
+      {
+        "de": "Friseursalon",
+        "en": "Hair salon"
+      },
+      {
+        "de": "Wüste",
+        "en": "Desert"
+      },
+      {
+        "de": "Insel",
+        "en": "Island"
+      },
+      {
+        "de": "Flohmarkt",
+        "en": "Flea market"
+      },
+      {
+        "de": "Turnhalle",
+        "en": "Gym"
+      },
+      {
+        "de": "Waschsalon",
+        "en": "Laundromat"
+      },
+      {
+        "de": "Hotel",
+        "en": "Hotel"
+      },
+      {
+        "de": "Kloster",
+        "en": "Monastery"
+      },
+      {
+        "de": "Höhle",
+        "en": "Cave"
+      },
+      {
+        "de": "Marktplatz",
+        "en": "Market square"
+      },
+      {
+        "de": "Autobahn",
+        "en": "Motorway"
+      },
+      {
+        "de": "Dachboden",
+        "en": "Attic"
+      }
+    ],
+    "Tiere": [
+      {
+        "de": "Hund",
+        "en": "Dog"
+      },
+      {
+        "de": "Pferd",
+        "en": "Horse"
+      },
+      {
+        "de": "Hase",
+        "en": "Rabbit"
+      },
+      {
+        "de": "Wal",
+        "en": "Whale"
+      },
+      {
+        "de": "Hai",
+        "en": "Shark"
+      },
+      {
+        "de": "Bär",
+        "en": "Bear"
+      },
+      {
+        "de": "Wolf",
+        "en": "Wolf"
+      },
+      {
+        "de": "Frosch",
+        "en": "Frog"
+      },
+      {
+        "de": "Spinne",
+        "en": "Spider"
+      },
+      {
+        "de": "Ente",
+        "en": "Duck"
+      },
+      {
+        "de": "Kuh",
+        "en": "Cow"
+      },
+      {
+        "de": "Schwein",
+        "en": "Pig"
+      },
+      {
+        "de": "Affe",
+        "en": "Monkey"
+      },
+      {
+        "de": "Nilpferd",
+        "en": "Hippopotamus"
+      },
+      {
+        "de": "Nashorn",
+        "en": "Rhinoceros"
+      },
+      {
+        "de": "Pfau",
+        "en": "Peacock"
+      },
+      {
+        "de": "Maulwurf",
+        "en": "Mole"
+      },
+      {
+        "de": "Faultier",
+        "en": "Sloth"
+      },
+      {
+        "de": "Hamster",
+        "en": "Hamster"
+      },
+      {
+        "de": "Ameise",
+        "en": "Ant"
+      }
+    ],
+    "Freizeit": [
+      {
+        "de": "Basketball",
+        "en": "Basketball"
+      },
+      {
+        "de": "Radfahren",
+        "en": "Cycling"
+      },
+      {
+        "de": "Lesen",
+        "en": "Reading"
+      },
+      {
+        "de": "Malen",
+        "en": "Painting"
+      },
+      {
+        "de": "Stricken",
+        "en": "Knitting"
+      },
+      {
+        "de": "Joggen",
+        "en": "Jogging"
+      },
+      {
+        "de": "Skateboarden",
+        "en": "Skateboarding"
+      },
+      {
+        "de": "Gitarre spielen",
+        "en": "Playing guitar"
+      },
+      {
+        "de": "Puzzeln",
+        "en": "Doing puzzles"
+      },
+      {
+        "de": "Camping",
+        "en": "Camping"
+      },
+      {
+        "de": "Grillen",
+        "en": "Barbecue"
+      },
+      {
+        "de": "Kochen",
+        "en": "Cooking"
+      },
+      {
+        "de": "Tauchen",
+        "en": "Diving"
+      },
+      {
+        "de": "Schlittschuhlaufen",
+        "en": "Ice skating"
+      },
+      {
+        "de": "Minigolf",
+        "en": "Mini golf"
+      },
+      {
+        "de": "Brettspiele",
+        "en": "Board games"
+      },
+      {
+        "de": "Schneeballschlacht",
+        "en": "Snowball fight"
+      },
+      {
+        "de": "Drachen steigen lassen",
+        "en": "Flying a kite"
+      },
+      {
+        "de": "Töpfern",
+        "en": "Pottery"
+      },
+      {
+        "de": "Rodeln",
+        "en": "Sledding"
+      }
+    ]
+  }
+}
