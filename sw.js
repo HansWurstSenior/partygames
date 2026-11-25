@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.3.3",
+    "changes": {
+      "de": [
+        "Menüsperre nach wiederholtem Öffnen und Schließen der Hochstapler-Regeln behoben; verwaiste Eingabesperren werden nur im freien Hauptmenü aufgehoben.",
+        "Zurück-Navigation schließt Netzwerkdiagnose, Match-Statistik und Perudo-Regeln korrekt, bevor eine Spielansicht verlassen wird.",
+        "Alte Verlaufsmarker führen beim Neuladen nicht mehr automatisch aus der App. Die Neuerungen aus 6.3.2 bleiben erhalten."
+      ],
+      "en": [
+        "Fixed the menu lock after repeatedly opening and closing Impostor rules; orphaned interaction locks are cleared only on an otherwise unobstructed main menu.",
+        "Back navigation closes network diagnostics, match statistics and Perudo rules before leaving a game view.",
+        "Old history markers no longer automatically leave the app on reload. Features from 6.3.2 are retained."
+      ]
+    }
+  },
+  {
     "version": "6.3.2",
     "changes": {
       "de": [
