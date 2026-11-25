@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.1.8",
+    "changes": {
+      "de": [
+        "Sprach- und Titelanzeige: Verweise auf „Sieben Partyspiele“ / „Seven party games“ beim Lokalisieren und Sprachwechsel vereinheitlicht.",
+        "Schwimmen-Navigation: Sichtbarkeits- und Layout-Absicherung für die Setup-Ansichten ergänzt."
+      ],
+      "en": [
+        "Localization & title: unified references to “Seven party games” / “Sieben Partyspiele” during language switches and localization.",
+        "Thirty-One navigation: added visibility and layout safeguards for the setup screens."
+      ]
+    }
+  },
+  {
     "version": "6.1.7",
     "changes": {
       "de": [
