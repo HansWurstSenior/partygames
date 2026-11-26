@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.5.2",
+    "changes": {
+      "de": [
+        "Werwolf: Der Button „Spielleiter – Verliebte festlegen“ auf dem Einleitungsbildschirm entfällt. Die Verliebten werden im Amor-Schritt des Nachtablaufs festgelegt."
+      ],
+      "en": [
+        "Werewolf: the “Moderator – set lovers” button on the intro screen has been removed. The lovers are set in the Cupid step of the night flow."
+      ]
+    }
+  },
+  {
     "version": "6.5.1",
     "changes": {
       "de": [
