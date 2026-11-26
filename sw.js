@@ -1,6 +1,32 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.5.1",
+    "changes": {
+      "de": [
+        "Werwolf: Heil- und Gifttrank der Hexe können pro Partie nur je einmal eingesetzt werden. Eingesetzte Tränke sind danach ausgegraut und mit Hinweis markiert.",
+        "Werwolf: Wird das Nachtopfer nach dem Heiltrank geändert, wird der Heiltrank wieder zurückgenommen. „Ausscheiden rückgängig“ macht einen dabei eingesetzten Gifttrank oder Heiltrank wieder verfügbar. „Neue Runde – gleiche Namen & Rollen“ startet jetzt direkt mit der Kartenverteilung statt auf der Einstellungsseite zu landen."
+      ],
+      "en": [
+        "Werewolf: the witch’s healing and poison potions can each be used only once per game. Used potions are greyed out and marked with a note.",
+        "Werewolf: changing the night victim after choosing the healing potion cancels the healing choice. Undoing an elimination makes a potion used in that night available again. “New round – same names & roles” now starts card dealing directly instead of landing on the setup page."
+      ]
+    }
+  },
+  {
+    "version": "6.5.0",
+    "changes": {
+      "de": [
+        "Werwolf: Ist die Hexe ausgeschieden, sind Heil- und Gifttrank in der Nacht ausgegraut und nicht mehr wählbar; der Vorlesetext bleibt erhalten.",
+        "Werwolf: Neue Spielvariante „Ohne Rollendetail“ mit Erklärung im Start-Bildschirm. Beim Ausscheiden wird nur „Dorfseite“ oder „Werwolf“ aufgedeckt, die genaue Rolle bleibt verborgen."
+      ],
+      "en": [
+        "Werewolf: when the witch has been eliminated, the healing and poison choices at night are greyed out and cannot be selected; the narration stays available.",
+        "Werewolf: new game variant “Without role detail” with an explanation on the start screen. Eliminations only reveal “Village team” or “Werewolf”; the exact role stays hidden."
+      ]
+    }
+  },
+  {
     "version": "6.4.1",
     "changes": {
       "de": [
