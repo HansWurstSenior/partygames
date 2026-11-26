@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.6.0",
+    "changes": {
+      "de": [
+        "Schwimmen: Sobald der letzte menschliche Spieler ausgeschieden ist, endet die Partie. KI-Gegner spielen nicht gegeneinander weiter.",
+        "Kniffeln (digital): KI-Gegner für Spieler 2–8 wählbar. Die KI würfelt sichtbar mit Haltewahl, trägt selbstständig ein und zeigt ihren letzten Zug an. Spieler 1 bleibt immer ein Mensch."
+      ],
+      "en": [
+        "Thirty-One: the match ends as soon as the last human player has been eliminated. AI opponents no longer play on against each other.",
+        "Yahtzee (digital): AI opponents can be chosen for players 2–8. The AI rolls visibly, holds dice, scores on its own and shows its last move. Player 1 is always human."
+      ]
+    }
+  },
+  {
     "version": "6.5.2",
     "changes": {
       "de": [
