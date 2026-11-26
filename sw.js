@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.4.1",
+    "changes": {
+      "de": [
+        "Werwolf: Der Hinweis zum blinzelnden Mädchen steht jetzt als erster Nachtschritt vor Amor.",
+        "Werwolf: Amor-Schritt mit Spielerliste wie bei Werwolf-Opfer und Hexe: zwei Personen antippen, Rollen werden nur der Spielleitung angezeigt."
+      ],
+      "en": [
+        "Werewolf: the note for the Peeking Girl is now the first night step, before Cupid.",
+        "Werewolf: the Cupid step uses a player list like the wolf victim and witch steps: tap two people, roles are shown to the moderator only."
+      ]
+    }
+  },
+  {
     "version": "6.4.0",
     "changes": {
       "de": [
