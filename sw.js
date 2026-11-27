@@ -1,5 +1,6 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
+{"version": "6.6.1", "changes": {"de": ["Hochstapler: Bei fehlender, ungültiger oder nicht erreichbarer Zusatzliste bleibt die letzte gültige Liste nutzbar."], "en": ["Impostor: The last valid extra term list remains available when the new list is missing, invalid, or unreachable."]}},
   {
     "version": "6.6.0",
     "changes": {
@@ -888,30 +889,76 @@ async function installRelease() {
 }
 
 // Optional content file: network first so edits appear quickly, saved copy when offline. It is not part of the versioned shell.
+// Keep this parser aligned with the app; the release check compares both copies.
+const EXTRA_MAX_CHARS=200000,EXTRA_MAX_CATS=30,EXTRA_MAX_TERMS=2000,EXTRA_TERM_MAX=40;
+const BAD_KEYS=new Set(['__proto__','constructor','prototype','Alle Kategorien']);
+function cleanTerm(v){return typeof v==='string'&&v.trim().length>=1&&v.trim().length<=EXTRA_TERM_MAX&&!/[\u0000-\u001f\u007f<>|]/.test(v)?v.trim().replace(/\s+/g,' '):''}
+function parseExtra(text){
+ if(typeof text!=='string'||text.length>EXTRA_MAX_CHARS)throw new Error('size');
+ let data;try{data=JSON.parse(text)}catch(_){throw new Error('json')}
+ if(!data||typeof data!=='object'||Array.isArray(data)||data.format!==1||!data.kategorien||typeof data.kategorien!=='object'||Array.isArray(data.kategorien))throw new Error('format');
+ const cats=new Map();let count=0,skipped=0;const names=Object.keys(data.kategorien);
+ if(names.length>EXTRA_MAX_CATS)throw new Error('format');
+ for(const name of names){
+  const label=typeof name==='string'?name.trim():'';
+  if(!label||label.length>40||BAD_KEYS.has(label)||/[\u0000-\u001f\u007f<>|]/.test(label)){skipped++;continue}
+  const list=data.kategorien[name];if(!Array.isArray(list)||list.length>EXTRA_MAX_TERMS)throw new Error('format');
+  const entry=cats.get(label)||{de:[],en:[]},seenDe=new Set(entry.de.map(w=>w.toLocaleLowerCase('de'))),seenEn=new Set(entry.en.map(w=>w.toLocaleLowerCase('en')));
+  for(const item of list){
+   const de=cleanTerm(typeof item==='string'?item:item?.de),en=cleanTerm(typeof item==='string'?item:(item?.en??item?.de));
+   if(!de||!en){skipped++;continue}
+   const kd=de.toLocaleLowerCase('de'),ke=en.toLocaleLowerCase('en');
+   if(seenDe.has(kd)||seenEn.has(ke)){skipped++;continue}
+   seenDe.add(kd);seenEn.add(ke);entry.de.push(de);entry.en.push(en);count++
+  }
+  if(entry.de.length)cats.set(label,entry)
+ }
+ if(!count)throw new Error('empty');
+ return {cats,count,stand:typeof data.stand==='string'&&/^[0-9A-Za-z .:\-]{1,30}$/.test(data.stand)?data.stand:'',skipped};
+}
+
 async function refreshTerms(timeout) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);
     try {
         const response = await fetch(new Request(TERMS_URL, { cache: 'no-store' }), { signal: controller.signal });
-        if (response.ok) {
+        if (!response.ok) return response;
+        const text = await response.text();
+        try { parseExtra(text); }
+        catch (_) { return new Response('Invalid terms', { status: 502 }); }
+        const valid = new Response(text, { headers: { 'Content-Type': 'application/json; charset=utf-8' } });
+        try {
             const cache = await caches.open(DATA_CACHE);
-            await cache.put(TERMS_URL, response.clone());
-        }
-        return response;
+            await cache.put(TERMS_URL, valid.clone());
+        } catch (error) { console.warn('Terms could not be cached:', error); }
+        return valid;
     } finally {
         clearTimeout(timer);
     }
 }
 
 async function termsResponse() {
+    let failure;
     try {
-        return await refreshTerms(8000);
-    } catch (error) {
+        const response = await refreshTerms(8000);
+        if (response.ok) return response;
+        failure = response;
+    } catch (_) {
+        failure = new Response('{}', { status: 504, statusText: 'Terms unavailable' });
+    }
+    try {
         const cache = await caches.open(DATA_CACHE);
         const saved = await cache.match(TERMS_URL);
-        if (saved) return saved;
-        return new Response('{}', { status: 504, statusText: 'Terms unavailable', headers: { 'Content-Type': 'application/json' } });
-    }
+        if (saved?.ok) {
+            const text = await saved.text();
+            parseExtra(text);
+            return new Response(text, { headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-Partygames-Terms': 'saved'
+            } });
+        }
+    } catch (_) { /* Ignore unavailable cache or invalid entries from an earlier release. */ }
+    return failure;
 }
 
 async function activateRelease() {
