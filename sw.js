@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.6.7",
+    "changes": {
+      "de": [
+        "Schwimmen (Pass-and-Play): Gewählte Spieleranzahl (2–6) und Mensch/KI-Auswahl bleiben dauerhaft gespeichert und werden nicht mehr auf 5 Spieler bzw. Mensch zurückgesetzt."
+      ],
+      "en": [
+        "Thirty-One (Pass-and-Play): selected player count (2–6) and Human/AI settings now persist across sessions instead of resetting to 5 players or Human."
+      ]
+    }
+  },
+  {
     "version": "6.6.6",
     "changes": {
       "de": [
