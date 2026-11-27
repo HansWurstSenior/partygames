@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.6.4",
+    "changes": {
+      "de": [
+        "Kniffeln: Neue optionale Kategorie „Große Straße mit Schlagloch“ (35 Punkte bei 4 aufeinanderfolgenden Zahlen mit einer Lücke von 1).",
+        "Kniffeln: Neue Spielvariante „Von oben nach unten“ – Einträge oder Streichungen (0) erfolgen streng von oben nach unten."
+      ],
+      "en": [
+        "Yahtzee: added optional “Pothole Large Straight” category (35 points for 4 sequential numbers with a gap of 1).",
+        "Yahtzee: added “Top to bottom” option — categories must be scored or scratched with 0 strictly from top to bottom."
+      ]
+    }
+  },
+  {
     "version": "6.6.3",
     "changes": {
       "de": [
