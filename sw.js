@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.6.10",
+    "changes": {
+      "de": [
+        "Kniffeln: Neuer Menüeintrag „Online mit Freunden“ mit Raum-Erstellung (4-stelligem Zugangscode), Raumsuche/Beitritt und Synchronisation über die PeerJS-Technik aus Schwimmen."
+      ],
+      "en": [
+        "Yahtzee: added “Online with friends” menu entry with room creation (4-digit access code), room scan/join, and state sync using Thirty-One's PeerJS networking."
+      ]
+    }
+  },
+  {
     "version": "6.6.9",
     "changes": {
       "de": [
