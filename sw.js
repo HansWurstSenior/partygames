@@ -1,6 +1,30 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.6.6",
+    "changes": {
+      "de": [
+        "Kniffeln: Spielregeln für „Große Straße mit Schlagloch“ (35 Punkte) und „Von oben nach unten“ auf Deutsch und Englisch präzisiert.",
+        "Manifest: Beschreibung von Partygames auf sieben Spiele aktualisiert."
+      ],
+      "en": [
+        "Yahtzee: clarified rules for “Pothole Large Straight” (35 points) and “Top to bottom” in German and English.",
+        "Manifest: updated Partygames description to seven games."
+      ]
+    }
+  },
+  {
+    "version": "6.6.5",
+    "changes": {
+      "de": [
+        "Kniffeln: Fehler beim Starten des Spielskripts („Invalid regular expression: missing /“) behoben; alle Funktionen aus 6.6.4 bleiben vollständig erhalten."
+      ],
+      "en": [
+        "Yahtzee: fixed the startup syntax error (“Invalid regular expression: missing /”); all features from 6.6.4 remain intact."
+      ]
+    }
+  },
+  {
     "version": "6.6.4",
     "changes": {
       "de": [
