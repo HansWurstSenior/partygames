@@ -1,6 +1,28 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.7.2",
+    "changes": {
+      "de": [
+        "Kniffeln: Vollständiger Release-Stand 6.7.2 mit Netzwerkdiagnose in Kopfzeile und Online-Setup, 2er-Raumsuchfenster mit Wiederholungsversuch und kompakter Schlagloch-Option."
+      ],
+      "en": [
+        "Yahtzee: release build 6.7.2 with Network diagnostics in header and online setup, 2-slot room scan window with retry pass, and compact pothole straight option."
+      ]
+    }
+  },
+  {
+    "version": "6.7.1",
+    "changes": {
+      "de": [
+        "Kniffeln: Netzwerkdiagnose-Option in Kopfzeile und Online-Ansicht ergänzt sowie Raumsuche und Verbindung auf das 2er-Fenster mit Wiederholungsversuch, RTC-Fehlererkennung und Diagnose-Einbindung aus Schwimmen abgestimmt."
+      ],
+      "en": [
+        "Yahtzee: added Network diagnostics option in header and online view and aligned room scanning/connection with Thirty-One's 2-slot probe window, retry pass, RTC failure handling, and diagnostics snapshot."
+      ]
+    }
+  },
+  {
     "version": "6.7.0",
     "changes": {
       "de": [

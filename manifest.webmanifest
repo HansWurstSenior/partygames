@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Partygames",
   "short_name": "Partygames",
-  "description": "Sieben Partyspiele: Schwimmen, Hochstapler, Werwolf, Secret Hitler, Meiern, Kniffeln und Perudo",
+  "description": "Fünf Gesellschaftsspiele auf einem Gerät",
   "lang": "de",
   "start_url": "./index.html",
   "scope": "./",
