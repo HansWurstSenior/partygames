@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.7.0",
+    "changes": {
+      "de": [
+        "Kniffeln: Im Menü liegen „Spielregeln“ (inklusive „Was ist neu?“ und „Beenden“) nun unter den drei Spielvarianten; das Auswahlfeld für „Große Straße mit Schlagloch“ ist kompakter und näher am Text platziert (online wie offline)."
+      ],
+      "en": [
+        "Yahtzee: moved “Rules” (along with “What’s new?” and “Exit”) below the three game modes; made the “Pothole Large Straight” option control more compact and closer to its label in both online and offline views."
+      ]
+    }
+  },
+  {
     "version": "6.6.10",
     "changes": {
       "de": [
