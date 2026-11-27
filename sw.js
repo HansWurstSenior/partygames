@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.6.3",
+    "changes": {
+      "de": [
+        "Kniffeln: Im Punkteblock steht in der Bonuszeile jetzt „Oben (Bonus +35 ab 63)“.",
+        "Kniffeln (digital): Zwei KI-Schwierigkeitsgrade wählbar – „KI (normal)“ und „KI (stark)“.",
+        "Schwimmen: Die Kopfzeile im Spiel zeigt nun wie bei den übrigen Spielen „Spielregeln“ und „Zum Menü“; der doppelte Ton-Button im Spielfeld entfällt."
+      ],
+      "en": [
+        "Yahtzee: the upper bonus row on the score sheet now reads “Upper (Bonus +35 at 63)”.",
+        "Yahtzee (digital): two AI difficulty levels can be selected — “AI (normal)” and “AI (strong)”.",
+        "Thirty-One: the in-game header now includes “Rules” and “Main menu” like the other games; the duplicate sound button inside the game header has been removed."
+      ]
+    }
+  },
+  {
     "version": "6.6.2",
     "changes": {
       "de": [
