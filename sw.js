@@ -1,5 +1,16 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
+  {
+    "version": "6.6.2",
+    "changes": {
+      "de": [
+        "Schwimmen: Zu tauschende Karten bleiben auch im Dark-Design gelb umrahmt statt weiß."
+      ],
+      "en": [
+        "Thirty-One: cards selected to swap keep their yellow highlight border in the dark theme instead of turning white."
+      ]
+    }
+  },
 {"version": "6.6.1", "changes": {"de": ["Hochstapler: Bei fehlender, ungültiger oder nicht erreichbarer Zusatzliste bleibt die letzte gültige Liste nutzbar."], "en": ["Impostor: The last valid extra term list remains available when the new list is missing, invalid, or unreachable."]}},
   {
     "version": "6.6.0",
