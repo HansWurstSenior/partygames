@@ -1,6 +1,28 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.6.9",
+    "changes": {
+      "de": [
+        "Kniffeln: „Große Straße mit Schlagloch“ wird bei aktivierter Option wie alle anderen Kategorien behandelt (inklusive Streichen mit 0) und bei deaktivierter Option nicht als offenes/nächstes Feld gezählt."
+      ],
+      "en": [
+        "Yahtzee: when enabled, “Pothole Large Straight” is treated like any other category (including scratching with 0), and excluded from open/next categories when disabled."
+      ]
+    }
+  },
+  {
+    "version": "6.6.8",
+    "changes": {
+      "de": [
+        "Schwimmen: In der Spielerleiste im Spielfeld steht nun ein Leerzeichen zwischen der Lebenszahl und dem Rettungsring (z. B. „2 🛟“)."
+      ],
+      "en": [
+        "Thirty-One: added a space between the life count and the life-ring icon in the in-game player strip (e.g. “2 🛟”)."
+      ]
+    }
+  },
+  {
     "version": "6.6.7",
     "changes": {
       "de": [
