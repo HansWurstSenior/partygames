@@ -1,5 +1,6 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
+  {"version": "6.7.3", "changes": {"de": ["Kniffeln: Doppelte Netzwerkdiagnose entfernt, Raumsuche mit Host-Antwort ergänzt und Lobby-Beitritt sowie Verbindungsabbrüche robuster behandelt."], "en": ["Yahtzee: removed duplicate network diagnostics, added the host response for room discovery, and improved lobby joins and disconnect handling."]}},
   {
     "version": "6.7.2",
     "changes": {
