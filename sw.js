@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.8.4",
+    "changes": {
+      "de": [
+        "Kniffeln (Online mit Freunden): Würfel wackeln jetzt beim Würfeln auf allen verbundenen Geräten (Host und Mitspieler).",
+        "Kniffeln (Online mit Freunden): Das Markieren/Halten einzelner Würfel reagiert sofort lokal ohne Verzögerung; die gehaltenen Würfel werden gebündelt beim nächsten Wurf an die Mitspieler übertragen."
+      ],
+      "en": [
+        "Yahtzee (Online with friends): dice now wobble during rolls across all connected devices (host and guests).",
+        "Yahtzee (Online with friends): holding/unholding individual dice updates locally without lag; held dice are synced to other players when rolling."
+      ]
+    }
+  },
+  {
     "version": "6.8.3",
     "changes": {
       "de": [
