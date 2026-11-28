@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.8.8",
+    "changes": {
+      "de": [
+        "Kniffeln (Online): Button „Zugangscode in Zwischenablage kopieren“ direkt unter das Zugangscode-Feld nach oben verschoben; doppelten mittleren Code-Button entfernt.",
+        "Schwimmen (Online): Gelben Button „Code eingeben“ wie bei Kniffeln direkt neben „Aktualisieren“ in der Raumliste platziert.",
+        "Schwimmen (Online): Überlagerung/z-Index des Zugangscode-Modals korrigiert, sodass sich das Eingabefenster zuverlässig im Vordergrund öffnet."
+      ],
+      "en": [
+        "Yahtzee (Online): moved “Copy access code to clipboard” directly below the access code field and removed the duplicate middle code button.",
+        "Thirty-One (Online): placed the yellow “Enter code” button right next to “Refresh” in the room list, matching Yahtzee.",
+        "Thirty-One (Online): fixed z-index layering of the access code modal so the dialog opens reliably in the foreground."
+      ]
+    }
+  },
+  {
     "version": "6.8.7",
     "changes": {
       "de": [

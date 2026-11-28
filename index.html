@@ -4,8 +4,8 @@
 <head>
 <script>window.gameLanguage='de';try{if(localStorage.getItem('collection-language')==='en')window.gameLanguage='en'}catch(_){}</script><script id="theme-preload">(()=>{let theme='default';try{const saved=localStorage.getItem('collection-theme');if(saved==='dark'||saved==='default')theme=saved}catch(e){}document.documentElement.setAttribute('data-theme',theme)})();</script>
 <meta charset="utf-8"/>
-<meta content="6.8.7" name="application-version"/>
-<meta name="application-build" content="6.8.7-online-ux"/>
+<meta content="6.8.8" name="application-version"/>
+<meta name="application-build" content="6.8.8-online-pin-fix"/>
 <script id="dynamic-version-sync">
 document.addEventListener('DOMContentLoaded', () => {
   const v = document.querySelector('meta[name="application-version"]')?.content;
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
          v4.5.4: cancellable room scans, retries, confirmed joins and random names.
          A dishonest host is outside this peer-hosted trust model. -->
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-<title>Partygames 6.8.7 · Sieben Partyspiele</title>
+<title>Partygames 6.8.8 · Sieben Partyspiele</title>
 <script id="collection-language-helpers">(() => {
     'use strict';
 
@@ -1445,10 +1445,12 @@ html[data-theme="dark"] .swim-header-btn{background:#303030!important;color:#fff
 html[data-theme="dark"] #screen-setup-local .kn-box{background:#202020!important;border-color:#666!important;color:#fff!important}
 html[data-theme="dark"] #screen-setup-local .kn-box button.kn-primary{background:#eee!important;color:#111!important;border-color:#fff!important}
 
-.kn-fixed-modal{position:fixed;inset:0;z-index:235;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.85);backdrop-filter:blur(4px)}
-.kn-fixed-modal-card{width:100%;max-width:340px;padding:20px;border:2px solid #fbbf24;border-radius:18px;background:#0a3820;color:#ecfdf5;box-shadow:0 20px 50px rgba(0,0,0,.75);text-align:left}
-.kn-fixed-modal-card h3{margin:0 0 8px;color:#fcd34d;font-size:19px;font-weight:900}
-html[data-theme="dark"] .kn-fixed-modal-card{background:#202020!important;border-color:#fff!important;color:#fff!important}
+.kn-fixed-modal,#modal-pin{position:fixed;inset:0;z-index:235;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.85);backdrop-filter:blur(4px)}
+#modal-pin.hidden{display:none!important}
+.kn-fixed-modal-card,#modal-pin>div{width:100%;max-width:340px;padding:20px;border:2px solid #fbbf24;border-radius:18px;background:#0a3820;color:#ecfdf5;box-shadow:0 20px 50px rgba(0,0,0,.75);text-align:left}
+.kn-fixed-modal-card h3,#modal-pin>div h3{margin:0 0 8px;color:#fcd34d;font-size:19px;font-weight:900}
+#modal-pin>div button{min-height:44px;padding:9px 12px;border:1px solid #5c9c79;border-radius:11px;font:700 14px/1.35 system-ui;cursor:pointer}
+html[data-theme="dark"] .kn-fixed-modal-card,html[data-theme="dark"] #modal-pin>div{background:#202020!important;border-color:#fff!important;color:#fff!important}
 </style>
 <script id="partygames-health">
 (()=>{
@@ -1594,7 +1596,7 @@ html[data-theme="dark"] .kn-fixed-modal-card{background:#202020!important;border
 </div>
 </button><div class="game-info-actions"><button aria-controls="modal-game-rules" aria-haspopup="dialog" class="rules-menu-button" id="btn-game-rules" onclick="openGameRules()" type="button">Spielregeln</button><button aria-controls="modal-changelog" aria-haspopup="dialog" class="rules-menu-button" id="btn-changelog" onclick="openChangelog('schwimmen')" type="button">Was ist neu?</button><button class="rules-menu-button app-exit-button" onclick="exitPartygames()" type="button">Beenden</button></div></div><div hidden inert aria-labelledby="tab-meiern" class="collection-panel" id="panel-meiern" role="tabpanel"><h2>Meiern</h2><p class="collection-description">2–12 Spieler · ein Gerät · Würfel & Bluff</p><button class="w-full py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-base rounded-2xl shadow-xl border border-amber-200 active:scale-95 transition flex items-center justify-center gap-3" id="btn-meiern" onclick="openMeiern()" type="button"><svg class="collection-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.5" fill="currentColor"/></svg><div class="text-left"><div>Meiern</div><div class="text-[10px] font-normal">2–12 Spieler · ein Gerät · Würfel & Bluff</div></div></button><div class="game-info-actions"><button class="rules-menu-button mx-menu-rules" onclick="openMeiernRules()" type="button">Spielregeln</button><button class="rules-menu-button" onclick="openChangelog('meiern')" type="button">Was ist neu?</button><button class="rules-menu-button app-exit-button" onclick="exitPartygames()" type="button">Beenden</button></div></div><div hidden inert aria-labelledby="tab-kniffeln" class="collection-panel kn-panel-with-bottom-rules" id="panel-kniffeln" role="tabpanel"><h2>Kniffeln</h2><p class="collection-description">1–8 Spieler · Variante wählen</p><button class="w-full py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-base rounded-2xl shadow-xl border border-amber-200 active:scale-95 transition flex items-center justify-center gap-3" id="btn-kniffeln-digital" onclick="openKniffeln('digital')" type="button"><svg class="collection-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.3" fill="currentColor"/><circle cx="16" cy="8" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="8" cy="16" r="1.3" fill="currentColor"/><circle cx="16" cy="16" r="1.3" fill="currentColor"/></svg><div class="text-left"><div>Digital – an einem Gerät</div><div class="text-[10px] font-normal">5 Würfel in der App · Halten, Schütteln &amp; Block</div></div></button><button class="w-full py-4 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-black text-base rounded-2xl shadow-xl border border-teal-300/40 active:scale-95 transition flex items-center justify-center gap-3" id="btn-kniffeln-online" onclick="openKniffeln('online')" type="button"><svg class="collection-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><div class="text-left"><div>Online mit Freunden</div><div class="text-[10px] text-emerald-200 font-normal">Eigene Geräte · Raum erstellen oder beitreten · Internet erforderlich</div></div></button><button class="w-full py-4 bg-emerald-700 hover:bg-emerald-600 text-white font-black text-base rounded-2xl shadow-xl border border-emerald-500 active:scale-95 transition flex items-center justify-center gap-3" id="btn-kniffeln-sheet" onclick="openKniffeln('sheet')" type="button"><svg class="collection-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><div class="text-left"><div>Mit eigenen Würfeln (Kniffel-Block)</div><div class="text-[10px] text-emerald-200 font-normal">Echte Würfel am Tisch · Punkte direkt im Block eintragen</div></div></button><div class="game-info-actions"><button class="rules-menu-button kn-menu-rules" onclick="openKniffelnRules()" type="button">Spielregeln</button><button class="rules-menu-button" onclick="openChangelog('kniffeln')" type="button">Was ist neu?</button><button class="rules-menu-button app-exit-button" onclick="exitPartygames()" type="button">Beenden</button></div></div><div hidden inert aria-labelledby="tab-perudo" class="collection-panel" id="panel-perudo" role="tabpanel"><h2>Perudo</h2><p class="collection-description">2–6 Spieler · farbige Würfel · Dudo, Palifico &amp; Calza</p><button class="w-full py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-base rounded-2xl shadow-xl border border-amber-200 active:scale-95 transition flex items-center justify-center gap-3" id="btn-perudo-open" onclick="openPerudo()" type="button"><svg class="collection-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.4" fill="currentColor"/><circle cx="16" cy="8" r="1.4" fill="currentColor"/><circle cx="8" cy="16" r="1.4" fill="currentColor"/><circle cx="16" cy="16" r="1.4" fill="currentColor"/></svg><div class="text-left"><div>Perudo starten</div><div class="text-[10px] font-normal">Farbige Würfel · Schütteln zum Würfeln · Sonderregeln wählbar</div></div></button><div class="game-info-actions"><button class="rules-menu-button pr-menu-rules" onclick="openPerudoRules()" type="button">Spielregeln</button><button class="rules-menu-button" onclick="openChangelog('perudo')" type="button">Was ist neu?</button><button class="rules-menu-button app-exit-button" onclick="exitPartygames()" type="button">Beenden</button></div></div></div>
 </div>
-<button id="pwa-install" type="button">Als App installieren</button><div class="collection-footer" data-no-translate><p id="collection-version-label">v6.8.7 · Sieben Partyspiele</p> · <a href="./update.html" style="color:#fde68a;text-decoration:underline;font-size:11px">Update-Hilfe</a></div>
+<button id="pwa-install" type="button">Als App installieren</button><div class="collection-footer" data-no-translate><p id="collection-version-label">v6.8.8 · Sieben Partyspiele</p> · <a href="./update.html" style="color:#fde68a;text-decoration:underline;font-size:11px">Update-Hilfe</a></div>
 </div>
 <!-- ================= 2A. PASS-AND-PLAY SETUP ================= -->
 <div class="hidden h-full w-full flex flex-col justify-between p-5 safe-bottom overflow-y-auto z-10" id="screen-setup-local">
@@ -1657,10 +1659,7 @@ html[data-theme="dark"] .kn-fixed-modal-card{background:#202020!important;border
 <input class="w-full bg-emerald-900 border border-emerald-700 rounded-xl px-4 py-2 text-xs font-bold text-white focus:outline-none focus:border-amber-400 mb-2" id="inet-room-pin" inputmode="numeric" maxlength="4" placeholder="z. B. 4821" type="text" value="1111"/>
 </div>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 <button class="w-full py-2.5 px-3 bg-emerald-800 hover:bg-emerald-700 rounded-xl text-xs font-bold border border-emerald-600" id="inet-copy-config" onclick="copyRoomInvitation(true)" type="button">Zugangscode in Zwischenablage kopieren</button>
-<button class="w-full py-2.5 px-3 bg-amber-400/20 hover:bg-amber-400/30 text-amber-200 rounded-xl text-xs font-bold border border-amber-400/60" id="inet-open-quick-pin" onclick="openDirectPinModal()" type="button">Zugangscode eingeben</button>
-</div>
 <button class="hidden w-full py-2 bg-amber-400 text-slate-950 rounded-xl text-xs font-bold" id="inet-restore-session" onclick="restoreNetSession()">Letzte Sitzung wiederherstellen</button>
 <div class="grid grid-cols-2 gap-3 pt-1" id="inet-lobby-mode-selection">
 <button class="kn-primary p-3.5 bg-emerald-800 hover:bg-emerald-700 border border-emerald-600 rounded-2xl text-left space-y-1 active:scale-95 transition" id="inet-btn-create-lobby" onclick="initInternetHost()">
@@ -1677,23 +1676,15 @@ html[data-theme="dark"] .kn-fixed-modal-card{background:#202020!important;border
 <!-- LOBBY DISCOVERY & JOIN CODE BOX -->
 <div class="kn-box hidden bg-emerald-900/90 border border-amber-400/50 rounded-2xl p-4 space-y-3" id="inet-join-code-box">
 <div>
-<div class="flex justify-between items-center mb-1">
-<label class="block text-xs font-bold text-amber-300 uppercase">4 öffentliche Raumplätze:</label>
-<button class="text-[10px] text-amber-400 hover:underline flex items-center gap-1 font-bold" onclick="refreshPublicRooms()">
-<svg class="fa-ic"><use href="#fa-rotate-right"></use></svg> Aktualisieren
-                            </button>
+<div class="flex justify-between items-center gap-2 mb-2">
+<strong class="text-sm font-extrabold text-amber-300">Räume (1–4)</strong>
+<div class="flex items-center gap-1.5">
+<button class="kn-primary" onclick="openDirectPinModal()" style="width:auto;margin:0;min-height:38px;padding:6px 10px" type="button">Code eingeben</button>
+<button onclick="refreshPublicRooms()" style="width:auto;margin:0;min-height:38px;padding:6px 10px" type="button">Aktualisieren</button>
+</div>
 </div>
 <div aria-live="polite" class="space-y-1.5 bg-emerald-950 p-2 rounded-xl border border-emerald-800" id="inet-available-rooms-list">
 <div class="text-center py-3 text-xs text-emerald-400">Prüfe Raum 1 bis 4 …</div>
-</div>
-</div>
-<div class="pt-2 border-t border-emerald-800/80 space-y-2">
-<label class="block text-[11px] font-bold text-emerald-200 uppercase">Oder Raum-Nr. und Code manuell eingeben:</label>
-<div class="flex gap-2">
-<input class="w-1/3 bg-emerald-950 border border-emerald-700 rounded-xl px-2 py-2 text-center font-mono font-bold text-amber-400 text-lg focus:outline-none focus:border-amber-400" id="inet-join-room-code" inputmode="numeric" max="4" min="1" placeholder="1–4" step="1" type="number"/><input class="w-2/3 bg-emerald-950 border border-emerald-700 rounded-xl px-3 py-2 text-center font-mono font-bold text-amber-400 text-lg tracking-widest focus:outline-none focus:border-amber-400" id="inet-join-pin" inputmode="numeric" maxlength="4" placeholder="Code" type="text"/>
-<button class="px-4 py-2 bg-amber-400 text-slate-950 font-black rounded-xl text-xs active:scale-95 transition whitespace-nowrap" onclick="connectManual()">
-                                Verbinden
-                            </button>
 </div>
 </div>
 </div>
@@ -2581,7 +2572,12 @@ const ICE_CFG = { iceServers: [
         }
 
         function showInternetJoin() {
-            document.getElementById('inet-join-code-box').classList.remove('hidden');
+            const box = document.getElementById('inet-join-code-box');
+            if (!box.classList.contains('hidden')) {
+                box.classList.add('hidden');
+                return;
+            }
+            box.classList.remove('hidden');
             document.getElementById('inet-lobby-wait-box').classList.add('hidden');
             refreshPublicRooms();
         }
@@ -7709,9 +7705,7 @@ function renderOnlineSetup(){
    +'<option value="top-down"'+(entryOrder==='top-down'?' selected':'')+'>'+esc(L('Von oben nach unten','Top to bottom'))+'</option>'
    +'</select></div></div>'
    +'<div style="margin-top:8px"><label class="kn-motion-option" for="kn-pothole-online" style="margin:0"><input type="checkbox" id="kn-pothole-online" data-kn-setting="pothole"'+(potholeStraightOpt?' checked':'')+'>'+esc(L('Kleine Straße mit Schlagloch (+20)','Pothole small straight (+20)'))+'</label></div>'
-   +'<button type="button" data-kn="online-copy-code" style="width:100%;margin-top:10px">'+esc(L('Zugangscode in Zwischenablage kopieren','Copy access code to clipboard'))+'</button>'
-   +'<button type="button" data-kn="online-open-manual-modal" style="width:100%;margin-top:8px">'+esc(L('Zugangscode eingeben','Enter access code'))+'</button>'
-   +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">'
+   +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">'
    +'<button type="button" data-kn="online-create" class="kn-primary" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;text-align:left"><span style="font-weight:900">'+esc(L('Lobby Erstellen','Create lobby'))+'</span><span style="font-size:11px;font-weight:500;opacity:.85">'+esc(L('Du wirst Host','You become host'))+'</span></button>'
    +'<button type="button" data-kn="online-join-menu" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;text-align:left"><span style="display:inline-flex;align-items:center;gap:6px;font-weight:900"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg><span>'+esc(L('Lobby beitreten','Join lobby'))+'</span></span><span style="font-size:11px;font-weight:500;opacity:.85">'+esc(L('Raum1 bis Raum4 anzeigen','Show Room1 to Room4'))+'</span></button>'
    +'</div>'
@@ -7725,6 +7719,7 @@ function renderOnlineSetup(){
   +'<input id="kn-online-name" type="text" maxlength="24" value="'+nameVal+'" autocomplete="off" spellcheck="false">'
   +'<label for="kn-pin-input">'+esc(L('Zugangscode (4 Ziffern)','Access code (4 digits)'))+'</label>'
   +'<input id="kn-pin-input" type="text" inputmode="numeric" maxlength="4" value="'+pinVal+'" autocomplete="off">'
+  +(o.view==='lobby'?'<button type="button" data-kn="online-copy-code" style="width:100%;margin-top:10px">'+esc(L('Zugangscode in Zwischenablage kopieren','Copy access code to clipboard'))+'</button>':'')
   +body
   +(o.status?'<p class="kn-note" role="status">'+esc(o.status)+'</p>':'')
   +'</div>';
