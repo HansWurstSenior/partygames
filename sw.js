@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.8.6",
+    "changes": {
+      "de": [
+        "Alle Spielmenüs zeigen oben rechts einheitlich „Spielregeln“ und „Zum Menü“.",
+        "Netzwerkdiagnose erscheint nur noch in den beiden Online-Menüs von Kniffeln und Schwimmen.",
+        "Schwimmen: Vorbereitungsmenüs (Pass-and-Play und Online) optisch an die übrigen Spiele angeglichen (Spielname, Kurzbeschreibung, Spieleranzahl, Modi und Aktionsbuttons)."
+      ],
+      "en": [
+        "All game menus now consistently show “Rules” and “Main menu” in the top-right header.",
+        "Network diagnostics now appears only in the two online menus of Yahtzee and Thirty-One.",
+        "Thirty-One: aligned the setup menus (Pass-and-Play and Online) visually with the other games (game title, short description, player count, modes, and action buttons)."
+      ]
+    }
+  },
+  {
     "version": "6.8.5",
     "changes": {
       "de": [
