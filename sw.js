@@ -1,5 +1,20 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
+  {
+    "version": "6.8.2",
+    "changes": {
+      "de": [
+        "Kniffeln (Online mit Freunden): Revanche-Button am Spielende repariert – nur der Host kann die Revanche starten, bei Mitspielern ist der Button deaktiviert und die neue Runde wird an alle verbundenen Geräte übertragen.",
+        "Kniffeln: Option „Große Straße mit Schlagloch“ (35 Punkte) in „Kleine Straße mit Schlagloch“ (20 Punkte bei 3 aufeinanderfolgenden Zahlen + 1er-Lücke, z. B. 1-2-3-5 oder 2-3-4-6) geändert.",
+        "Kniffeln: Wenn „Kleine Straße mit Schlagloch“ nicht aktiviert ist, wird die Zeile auf dem Kniffelblock komplett ausgeblendet."
+      ],
+      "en": [
+        "Yahtzee (Online with friends): fixed the end-of-game Rematch button — only the host can start a rematch, the button is disabled for guests, and the new match syncs to all connected devices.",
+        "Yahtzee: changed optional “Pothole Large Straight” (35 points) to “Pothole Small Straight” (20 points for 3 sequential numbers + 1 gap, e.g. 1-2-3-5 or 2-3-4-6).",
+        "Yahtzee: when “Pothole Small Straight” is disabled, its row is completely hidden on the score sheet."
+      ]
+    }
+  },
   {"version": "6.8.1", "changes": {"de": ["Schwimmen: Online-Lobby optisch an Kniffeln angelehnt und veraltete Versionshinweise entfernt."], "en": ["Thirty-One: Restyled the online lobby to match Yahtzee and removed outdated version notices."]}},
   {
     "version": "6.8.0",
