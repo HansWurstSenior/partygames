@@ -1,6 +1,29 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
-  {"version": "6.7.3", "changes": {"de": ["Kniffeln: Doppelte Netzwerkdiagnose entfernt, Raumsuche mit Host-Antwort ergänzt und Lobby-Beitritt sowie Verbindungsabbrüche robuster behandelt."], "en": ["Yahtzee: removed duplicate network diagnostics, added the host response for room discovery, and improved lobby joins and disconnect handling."]}},
+  {
+    "version": "6.7.4",
+    "changes": {
+      "de": [
+        "Kniffeln (Online mit Freunden): Fehlende Antwort des Hosts auf Raumsuche-Anfragen (KN_DISCOVER) ergänzt, sodass aktive Lobbys gefunden werden und der Beitritt per Raumliste oder Code funktioniert.",
+        "Netzwerkdiagnose: Dateiname und App-Kennung der Diagnosedatei zeigen bei geöffnetem Kniffeln nun „Kniffeln-Netzwerkdiagnose-…“ statt „Schwimmen“."
+      ],
+      "en": [
+        "Yahtzee (Online with friends): added missing host response to room discovery queries (KN_DISCOVER) so active lobbies appear in the room list and can be joined.",
+        "Network diagnostics: diagnostic export filename and app field now report “Kniffeln” instead of “Schwimmen” when opened from Yahtzee."
+      ]
+    }
+  },
+  {
+    "version": "6.7.3",
+    "changes": {
+      "de": [
+        "Kniffeln: Den doppelten Netzwerkdiagnose-Button unten in der Online-Ansicht entfernt; der Button oben in der Kopfzeile bleibt erhalten."
+      ],
+      "en": [
+        "Yahtzee: removed the duplicate Network diagnostics button at the bottom of the online view while keeping the button in the top header."
+      ]
+    }
+  },
   {
     "version": "6.7.2",
     "changes": {
