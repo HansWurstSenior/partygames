@@ -1,6 +1,19 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.7.5",
+    "changes": {
+      "de": [
+        "Hauptmenü: Schwimmen und Perudo in der Spielauswahl getauscht und die Online-Spiele (Schwimmen und Kniffeln) nebeneinander platziert.",
+        "Hauptmenü: Bei Kniffeln und Schwimmen jeweils oben rechts in der Ecke ein Weltkugel-Piktogramm ergänzt, um Spiele mit Online-Modus sofort kenntlich zu machen."
+      ],
+      "en": [
+        "Main menu: swapped Thirty-One and Perudo in the game selector so online-capable games (Thirty-One and Yahtzee) sit side by side.",
+        "Main menu: added a top-right globe icon on Yahtzee and Thirty-One tabs so games with online mode are immediately recognizable."
+      ]
+    }
+  },
+  {
     "version": "6.7.4",
     "changes": {
       "de": [
