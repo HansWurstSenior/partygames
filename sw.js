@@ -1,6 +1,21 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.7.7",
+    "changes": {
+      "de": [
+        "Kniffeln: Eindeutige DOM-IDs für Digital-, Block- und Online-Setup sowie CSV-Import/-Feedback vergeben und Einstellungshandler auf data-kn-setting umgestellt.",
+        "Schwimmen (Online): Doppelte Namensfeld-IDs durch eindeutige IDs für Erstellen, Beitreten und Lobby ersetzt.",
+        "Manifest: App-Beschreibung auf sieben Partyspiele aktualisiert."
+      ],
+      "en": [
+        "Yahtzee: Assigned unique DOM IDs for digital, score-sheet, and online setups plus CSV import/feedback, and switched setting handlers to data-kn-setting.",
+        "Thirty-One (Online): Replaced duplicate player-name input IDs with unique IDs for create, join, and lobby views.",
+        "Manifest: Updated app description to seven party games."
+      ]
+    }
+  },
+  {
     "version": "6.7.6",
     "changes": {
       "de": [
