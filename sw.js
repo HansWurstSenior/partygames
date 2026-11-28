@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.8.5",
+    "changes": {
+      "de": [
+        "Kniffeln: Überflüssige schließende Klammer im Spielskript (eingeschlichen in 6.8.4) entfernt, sodass Kniffeln wieder fehlerfrei startet. Alle Neuerungen aus 6.8.4 (Würfel-Wackelanimation online & verzögerungsfreies Würfelhalten) sind aktiv."
+      ],
+      "en": [
+        "Yahtzee: removed stray closing brace in the game script introduced in 6.8.4 so Yahtzee initializes cleanly again. All 6.8.4 improvements (online dice wobble animation & instant local die holding) remain active."
+      ]
+    }
+  },
+  {
     "version": "6.8.4",
     "changes": {
       "de": [
