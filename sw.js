@@ -1,6 +1,23 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.8.7",
+    "changes": {
+      "de": [
+        "Kniffeln (Online): Namensfeld markiert beim Fokussieren nun den kompletten Namen.",
+        "Kniffeln (Online): Button „Zugangscode in Zwischenablage kopieren“ ergänzt.",
+        "Kniffeln (Online): „Lobby beitreten“ klappt die Raumliste unterhalb auf (inklusive Pfeil-Icon & Untertitel), ohne „Lobby erstellen“ auszublenden.",
+        "Schwimmen & Kniffeln (Online): Zugangscode-Eingabe über ein eigenes Modal deutlich vereinfacht (kein Scrollen nötig)."
+      ],
+      "en": [
+        "Yahtzee (Online): focusing the name input now selects the entire name.",
+        "Yahtzee (Online): added “Copy access code to clipboard” button.",
+        "Yahtzee (Online): “Join lobby” expands the room list below (with arrow icon & subtitle) while keeping “Create lobby” visible.",
+        "Thirty-One & Yahtzee (Online): simplified access code entry via a dedicated modal without scrolling."
+      ]
+    }
+  },
+  {
     "version": "6.8.6",
     "changes": {
       "de": [

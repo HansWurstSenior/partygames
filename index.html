@@ -4,8 +4,8 @@
 <head>
 <script>window.gameLanguage='de';try{if(localStorage.getItem('collection-language')==='en')window.gameLanguage='en'}catch(_){}</script><script id="theme-preload">(()=>{let theme='default';try{const saved=localStorage.getItem('collection-theme');if(saved==='dark'||saved==='default')theme=saved}catch(e){}document.documentElement.setAttribute('data-theme',theme)})();</script>
 <meta charset="utf-8"/>
-<meta content="6.8.6" name="application-version"/>
-<meta name="application-build" content="6.8.6-unified-menus"/>
+<meta content="6.8.7" name="application-version"/>
+<meta name="application-build" content="6.8.7-online-ux"/>
 <script id="dynamic-version-sync">
 document.addEventListener('DOMContentLoaded', () => {
   const v = document.querySelector('meta[name="application-version"]')?.content;
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
          v4.5.4: cancellable room scans, retries, confirmed joins and random names.
          A dishonest host is outside this peer-hosted trust model. -->
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-<title>Partygames 6.8.6 · Sieben Partyspiele</title>
+<title>Partygames 6.8.7 · Sieben Partyspiele</title>
 <script id="collection-language-helpers">(() => {
     'use strict';
 
@@ -1444,6 +1444,11 @@ html[data-theme="dark"] .collection-tabs button[data-online-tab="true"][aria-sel
 html[data-theme="dark"] .swim-header-btn{background:#303030!important;color:#fff!important;border-color:#888!important}
 html[data-theme="dark"] #screen-setup-local .kn-box{background:#202020!important;border-color:#666!important;color:#fff!important}
 html[data-theme="dark"] #screen-setup-local .kn-box button.kn-primary{background:#eee!important;color:#111!important;border-color:#fff!important}
+
+.kn-fixed-modal{position:fixed;inset:0;z-index:235;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.85);backdrop-filter:blur(4px)}
+.kn-fixed-modal-card{width:100%;max-width:340px;padding:20px;border:2px solid #fbbf24;border-radius:18px;background:#0a3820;color:#ecfdf5;box-shadow:0 20px 50px rgba(0,0,0,.75);text-align:left}
+.kn-fixed-modal-card h3{margin:0 0 8px;color:#fcd34d;font-size:19px;font-weight:900}
+html[data-theme="dark"] .kn-fixed-modal-card{background:#202020!important;border-color:#fff!important;color:#fff!important}
 </style>
 <script id="partygames-health">
 (()=>{
@@ -1589,7 +1594,7 @@ html[data-theme="dark"] #screen-setup-local .kn-box button.kn-primary{background
 </div>
 </button><div class="game-info-actions"><button aria-controls="modal-game-rules" aria-haspopup="dialog" class="rules-menu-button" id="btn-game-rules" onclick="openGameRules()" type="button">Spielregeln</button><button aria-controls="modal-changelog" aria-haspopup="dialog" class="rules-menu-button" id="btn-changelog" onclick="openChangelog('schwimmen')" type="button">Was ist neu?</button><button class="rules-menu-button app-exit-button" onclick="exitPartygames()" type="button">Beenden</button></div></div><div hidden inert aria-labelledby="tab-meiern" class="collection-panel" id="panel-meiern" role="tabpanel"><h2>Meiern</h2><p class="collection-description">2–12 Spieler · ein Gerät · Würfel & Bluff</p><button class="w-full py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-base rounded-2xl shadow-xl border border-amber-200 active:scale-95 transition flex items-center justify-center gap-3" id="btn-meiern" onclick="openMeiern()" type="button"><svg class="collection-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.5" fill="currentColor"/></svg><div class="text-left"><div>Meiern</div><div class="text-[10px] font-normal">2–12 Spieler · ein Gerät · Würfel & Bluff</div></div></button><div class="game-info-actions"><button class="rules-menu-button mx-menu-rules" onclick="openMeiernRules()" type="button">Spielregeln</button><button class="rules-menu-button" onclick="openChangelog('meiern')" type="button">Was ist neu?</button><button class="rules-menu-button app-exit-button" onclick="exitPartygames()" type="button">Beenden</button></div></div><div hidden inert aria-labelledby="tab-kniffeln" class="collection-panel kn-panel-with-bottom-rules" id="panel-kniffeln" role="tabpanel"><h2>Kniffeln</h2><p class="collection-description">1–8 Spieler · Variante wählen</p><button class="w-full py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-base rounded-2xl shadow-xl border border-amber-200 active:scale-95 transition flex items-center justify-center gap-3" id="btn-kniffeln-digital" onclick="openKniffeln('digital')" type="button"><svg class="collection-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.3" fill="currentColor"/><circle cx="16" cy="8" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="8" cy="16" r="1.3" fill="currentColor"/><circle cx="16" cy="16" r="1.3" fill="currentColor"/></svg><div class="text-left"><div>Digital – an einem Gerät</div><div class="text-[10px] font-normal">5 Würfel in der App · Halten, Schütteln &amp; Block</div></div></button><button class="w-full py-4 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-black text-base rounded-2xl shadow-xl border border-teal-300/40 active:scale-95 transition flex items-center justify-center gap-3" id="btn-kniffeln-online" onclick="openKniffeln('online')" type="button"><svg class="collection-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><div class="text-left"><div>Online mit Freunden</div><div class="text-[10px] text-emerald-200 font-normal">Eigene Geräte · Raum erstellen oder beitreten · Internet erforderlich</div></div></button><button class="w-full py-4 bg-emerald-700 hover:bg-emerald-600 text-white font-black text-base rounded-2xl shadow-xl border border-emerald-500 active:scale-95 transition flex items-center justify-center gap-3" id="btn-kniffeln-sheet" onclick="openKniffeln('sheet')" type="button"><svg class="collection-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><div class="text-left"><div>Mit eigenen Würfeln (Kniffel-Block)</div><div class="text-[10px] text-emerald-200 font-normal">Echte Würfel am Tisch · Punkte direkt im Block eintragen</div></div></button><div class="game-info-actions"><button class="rules-menu-button kn-menu-rules" onclick="openKniffelnRules()" type="button">Spielregeln</button><button class="rules-menu-button" onclick="openChangelog('kniffeln')" type="button">Was ist neu?</button><button class="rules-menu-button app-exit-button" onclick="exitPartygames()" type="button">Beenden</button></div></div><div hidden inert aria-labelledby="tab-perudo" class="collection-panel" id="panel-perudo" role="tabpanel"><h2>Perudo</h2><p class="collection-description">2–6 Spieler · farbige Würfel · Dudo, Palifico &amp; Calza</p><button class="w-full py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-base rounded-2xl shadow-xl border border-amber-200 active:scale-95 transition flex items-center justify-center gap-3" id="btn-perudo-open" onclick="openPerudo()" type="button"><svg class="collection-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.4" fill="currentColor"/><circle cx="16" cy="8" r="1.4" fill="currentColor"/><circle cx="8" cy="16" r="1.4" fill="currentColor"/><circle cx="16" cy="16" r="1.4" fill="currentColor"/></svg><div class="text-left"><div>Perudo starten</div><div class="text-[10px] font-normal">Farbige Würfel · Schütteln zum Würfeln · Sonderregeln wählbar</div></div></button><div class="game-info-actions"><button class="rules-menu-button pr-menu-rules" onclick="openPerudoRules()" type="button">Spielregeln</button><button class="rules-menu-button" onclick="openChangelog('perudo')" type="button">Was ist neu?</button><button class="rules-menu-button app-exit-button" onclick="exitPartygames()" type="button">Beenden</button></div></div></div>
 </div>
-<button id="pwa-install" type="button">Als App installieren</button><div class="collection-footer" data-no-translate><p id="collection-version-label">v6.8.6 · Sieben Partyspiele</p> · <a href="./update.html" style="color:#fde68a;text-decoration:underline;font-size:11px">Update-Hilfe</a></div>
+<button id="pwa-install" type="button">Als App installieren</button><div class="collection-footer" data-no-translate><p id="collection-version-label">v6.8.7 · Sieben Partyspiele</p> · <a href="./update.html" style="color:#fde68a;text-decoration:underline;font-size:11px">Update-Hilfe</a></div>
 </div>
 <!-- ================= 2A. PASS-AND-PLAY SETUP ================= -->
 <div class="hidden h-full w-full flex flex-col justify-between p-5 safe-bottom overflow-y-auto z-10" id="screen-setup-local">
@@ -1652,7 +1657,10 @@ html[data-theme="dark"] #screen-setup-local .kn-box button.kn-primary{background
 <input class="w-full bg-emerald-900 border border-emerald-700 rounded-xl px-4 py-2 text-xs font-bold text-white focus:outline-none focus:border-amber-400 mb-2" id="inet-room-pin" inputmode="numeric" maxlength="4" placeholder="z. B. 4821" type="text" value="1111"/>
 </div>
 </div>
-<button class="w-full py-2 bg-emerald-800 rounded-xl text-xs font-bold border border-emerald-600" id="inet-copy-config" onclick="copyRoomInvitation(true)">Zugangscode in Zwischenablage kopieren</button>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+<button class="w-full py-2.5 px-3 bg-emerald-800 hover:bg-emerald-700 rounded-xl text-xs font-bold border border-emerald-600" id="inet-copy-config" onclick="copyRoomInvitation(true)" type="button">Zugangscode in Zwischenablage kopieren</button>
+<button class="w-full py-2.5 px-3 bg-amber-400/20 hover:bg-amber-400/30 text-amber-200 rounded-xl text-xs font-bold border border-amber-400/60" id="inet-open-quick-pin" onclick="openDirectPinModal()" type="button">Zugangscode eingeben</button>
+</div>
 <button class="hidden w-full py-2 bg-amber-400 text-slate-950 rounded-xl text-xs font-bold" id="inet-restore-session" onclick="restoreNetSession()">Letzte Sitzung wiederherstellen</button>
 <div class="grid grid-cols-2 gap-3 pt-1" id="inet-lobby-mode-selection">
 <button class="kn-primary p-3.5 bg-emerald-800 hover:bg-emerald-700 border border-emerald-600 rounded-2xl text-left space-y-1 active:scale-95 transition" id="inet-btn-create-lobby" onclick="initInternetHost()">
@@ -1897,15 +1905,24 @@ html[data-theme="dark"] #screen-setup-local .kn-box button.kn-primary{background
 <!-- ================= QR GROSSANSICHT ================= -->
 <!-- ================= QR SCANNER ================= -->
 <!-- ================= ZUGANGSCODE-ABFRAGE ================= -->
-<div class="hidden absolute inset-0 bg-black/85 z-[60] flex items-center justify-center p-4 backdrop-blur-sm safe-bottom" id="modal-pin">
+<div class="hidden fixed inset-0 bg-black/85 z-[230] flex items-center justify-center p-4 backdrop-blur-sm safe-bottom" id="modal-pin">
 <div class="bg-emerald-900 border-2 border-amber-400 rounded-2xl p-5 max-w-xs w-full text-center shadow-2xl space-y-3">
 <h3 class="font-serif font-black text-amber-400 text-lg">Zugangscode</h3>
 <p class="text-xs text-emerald-100 leading-relaxed" id="pin-room-label"></p>
+<div class="hidden text-left" id="pin-room-select-wrap">
+<label class="block text-[11px] font-bold text-emerald-200 uppercase mb-1" for="pin-room-select">Raum (1–4):</label>
+<select class="w-full bg-emerald-950 border border-emerald-700 rounded-xl px-3 py-2 text-center font-mono font-bold text-amber-400 text-base focus:outline-none focus:border-amber-400" id="pin-room-select">
+<option value="1000">Raum 1</option>
+<option value="1001">Raum 2</option>
+<option value="1002">Raum 3</option>
+<option value="1003">Raum 4</option>
+</select>
+</div>
 <input autocomplete="off" class="w-full bg-emerald-950 border border-emerald-700 rounded-xl px-3 py-2 text-center font-mono font-bold text-amber-400 text-2xl tracking-widest focus:outline-none focus:border-amber-400" id="pin-input" inputmode="numeric" maxlength="4" onkeydown="if (event.key === 'Enter') submitPin()" pattern="[0-9]*" placeholder="0000" type="text"/>
 <p class="hidden text-xs font-bold text-red-300" id="pin-error"></p>
 <div class="grid grid-cols-2 gap-2 pt-1">
-<button class="py-2.5 bg-slate-700 text-white font-bold text-xs rounded-xl border border-slate-500/40" onclick="closePinModal()">Abbrechen</button>
-<button class="py-2.5 bg-amber-400 text-slate-950 font-black text-xs rounded-xl border border-amber-200 shadow" onclick="submitPin()">Beitreten</button>
+<button class="py-2.5 bg-slate-700 text-white font-bold text-xs rounded-xl border border-slate-500/40" onclick="closePinModal()" type="button">Abbrechen</button>
+<button class="py-2.5 bg-amber-400 text-slate-950 font-black text-xs rounded-xl border border-amber-200 shadow" onclick="submitPin()" type="button">Beitreten</button>
 </div>
 </div>
 </div>
@@ -2708,7 +2725,20 @@ const ICE_CFG = { iceServers: [
 
         function askPin(code) {
             pinTargetCode = code;
+            document.getElementById('pin-room-select-wrap')?.classList.add('hidden');
             document.getElementById('pin-room-label').innerText = `Raum ${roomNumber(code)}: Bitte den 4-stelligen Zugangscode des Hosts eingeben.`;
+            document.getElementById('pin-input').value = '';
+            document.getElementById('pin-error').classList.add('hidden');
+            document.getElementById('modal-pin').classList.remove('hidden');
+            setTimeout(() => document.getElementById('pin-input')?.focus(), 50);
+        }
+
+        function openDirectPinModal() {
+            pinTargetCode = null;
+            const sel = document.getElementById('pin-room-select');
+            if (sel) sel.value = '1000';
+            document.getElementById('pin-room-select-wrap')?.classList.remove('hidden');
+            document.getElementById('pin-room-label').innerText = 'Raum und 4-stelligen Zugangscode direkt eingeben:';
             document.getElementById('pin-input').value = '';
             document.getElementById('pin-error').classList.add('hidden');
             document.getElementById('modal-pin').classList.remove('hidden');
@@ -2720,6 +2750,7 @@ const ICE_CFG = { iceServers: [
         }
 
         function submitPin() {
+            const targetCode = pinTargetCode || document.getElementById('pin-room-select')?.value || '1000';
             const pin = document.getElementById('pin-input').value.trim();
             if (!/^\d{4}$/.test(pin)) {
                 const err = document.getElementById('pin-error');
@@ -2728,7 +2759,7 @@ const ICE_CFG = { iceServers: [
                 return;
             }
             closePinModal();
-            connectToInternetLobby(pinTargetCode, pin);
+            connectToInternetLobby(targetCode, pin);
         }
 
         function connectManual() {
@@ -6677,9 +6708,7 @@ function knResetOnline(destroyPeer=true){
   knownRooms:{},
   probeState:{},
   scanning:false,
-  pinModalCode:null,
-  pinModalError:'',
-  onlineName:knDefaultOnlineName()
+  joinExpanded:false,pinModal:null,pinModalError:'',onlineName:knDefaultOnlineName()
  };
 }
 knResetOnline(false);
@@ -7378,7 +7407,7 @@ async function knScanRooms(){
  if(!knOnline||knOnline.scanning)return;
  const guestName=(document.getElementById('kn-online-name')?.value||'').trim().slice(0,24)||knDefaultOnlineName();
  knOnline.onlineName=guestName;
- knOnline.view='join-list';
+ knOnline.joinExpanded=true;knOnline.view='lobby';
  knOnline.knownRooms={};
  knOnline.probeState=Object.fromEntries(KN_ROOM_SLOTS.map(s=>[s,'searching']));
  knOnline.scanning=true;
@@ -7576,6 +7605,35 @@ setInterval(()=>{
  }
 },8000);
 window.knOnlineSnapshot=()=>knOnline?{view:knOnline.view,isHost:knOnline.isHost,myIdx:knOnline.myIdx,roomCode:knOnline.roomCode,playersCount:knOnline.players.length,scanning:knOnline.scanning,probeState:knOnline.probeState,inGame:!!g,status:knOnline.status}:null;
+function knOpenPinOverlay(opts){
+ if(!knOnline)return;
+ knOnline.pinModal=opts;
+ knOnline.pinModalError='';
+ render();
+ setTimeout(()=>{
+  const inp=document.getElementById('kn-join-pin-modal');
+  if(inp){inp.focus();try{inp.setSelectionRange(0,inp.value.length);}catch(_){}}
+ },30);
+}
+async function knCopyOnlineCode(fromHostRoom=false){
+ const pinInput=document.getElementById('kn-pin-input');
+ let pin=fromHostRoom?String(knOnline?.pin||''):String(pinInput?.value||knOnline?.pin||'').trim();
+ if(!fromHostRoom&&!pin){pin='1111';if(pinInput)pinInput.value=pin;if(knOnline)knOnline.pin=pin;}
+ if(!/^\d{4}$/.test(pin)){
+  if(knOnline){knOnline.status=L('Der Zugangscode muss aus 4 Ziffern bestehen.','The access code must be 4 digits.');render();}
+  return;
+ }
+ const hostName=(document.getElementById('kn-online-name')?.value||knOnline?.onlineName||knDefaultOnlineName()).trim().slice(0,24);
+ const roomLabel=fromHostRoom&&knOnline?.roomCode?(L('Raum ','Room ')+(Number(knOnline.roomCode)-999)):L('Raum 1–4','Room 1–4');
+ const text=L('Kniffeln · ','Yahtzee · ')+hostName+' · '+roomLabel+' · '+L('Zugangscode ','Access code ')+pin+'. '+L('Code in der Lobby eingeben und beitreten.','Enter the code in the lobby and join.');
+ let ok=false;
+ try{await navigator.clipboard.writeText(text);ok=true;}catch(_){}
+ if(!ok){
+  const ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);
+  try{ta.focus();ta.select();ok=document.execCommand('copy');}catch(_){}ta.remove();
+ }
+ if(knOnline){knOnline.status=ok?L('Zugangscode & Einladung in Zwischenablage kopiert ✓','Access code & invite copied to clipboard ✓'):text;render();}
+}
 function renderOnlineSetup(){
  const o=knOnline;
  const nameVal=esc(o.onlineName||knDefaultOnlineName());
@@ -7585,50 +7643,11 @@ function renderOnlineSetup(){
   body='<div class="kn-online-box">'
    +'<p class="kn-note">'+esc(L('Raum ','Room '))+'<strong>'+(o.roomCode?(Number(o.roomCode)-999):'…')+'</strong> · '+esc(L('Zugangscode','Access code'))+'</p>'
    +'<div class="kn-code-box">'+esc(o.pin)+'</div>'
+   +'<button type="button" data-kn="online-copy-host" style="width:100%;margin-top:4px">'+esc(L('Zugangscode in Zwischenablage kopieren','Copy access code to clipboard'))+'</button>'
    +'<p class="kn-note">'+esc(L('Spieler in der Lobby: ','Players in lobby: '))+o.players.length+'/8</p>'
    +'<ul style="padding-left:18px;margin:8px 0">'+o.players.map((p,i)=>'<li><span style="color:'+knPal(i).color+';font-weight:800">'+esc(p.name)+'</span>'+(i===0?' ('+esc(L('Host','Host'))+')':'')+'</li>').join('')+'</ul>'
    +'<button type="button" data-kn="online-start" class="kn-primary" style="width:100%;margin-top:8px" '+(o.players.length<2?'disabled':'')+'>'+esc(L('Spiel jetzt starten','Start game now'))+'</button>'
    +'<button type="button" data-kn="online-leave" style="width:100%;margin-top:8px">'+esc(L('Lobby schließen','Close lobby'))+'</button>'
-   +'</div>';
- }else if(o.view==='join-list'){
-  const rows=KN_ROOM_SLOTS.map(slot=>{
-   const num=Number(slot)-999;
-   const info=o.knownRooms[slot];
-   const st=o.probeState[slot]||'idle';
-   const disabled=!info||info.started||info.count>=8;
-   const desc=!info?(o.scanning?L('Wird geprüft …','Checking …'):L('Kein aktiver Raum gefunden','No active room found')):(info.started?L('Partie läuft','Game in progress'):info.count+'/8 '+L('Spieler · Beitreten','players · Join'));
-   return '<button type="button" class="kn-room-btn" data-kn="online-pick-room" data-kn-room="'+slot+'" '+(disabled?'disabled':'')+'>'
-    +'<div style="display:flex;justify-content:space-between;gap:8px"><strong>'+esc(L('Raum ','Room ')+num)+'</strong><span class="kn-note">'+esc(info?info.hostName:st)+'</span></div>'
-    +'<div class="kn-note">'+esc(desc)+'</div>'
-    +'</button>';
-  }).join('');
-  let pinModal='';
-  if(o.pinModalCode){
-   pinModal='<div class="kn-online-box" style="border-color:#fbbf24">'
-    +'<p><strong>'+esc(L('Zugangscode für Raum ','Access code for room ')+(Number(o.pinModalCode)-999))+'</strong></p>'
-    +'<input id="kn-join-pin-modal" type="text" inputmode="numeric" maxlength="4" value="" placeholder="0000">'
-    +(o.pinModalError?'<p id="kn-pin-error" role="alert" style="color:#fecaca">'+esc(o.pinModalError)+'</p>':'')
-    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">'
-    +'<button type="button" data-kn="online-confirm-pin" class="kn-primary">'+esc(L('Beitreten','Join'))+'</button>'
-    +'<button type="button" data-kn="online-cancel-pin">'+esc(L('Abbrechen','Cancel'))+'</button>'
-    +'</div></div>';
-  }
-  body='<div class="kn-online-box">'
-   +'<div style="display:flex;justify-content:space-between;align-items:center;gap:8px">'
-   +'<strong>'+esc(L('Räume (1–4)','Rooms (1–4)'))+'</strong>'
-   +'<button type="button" data-kn="online-scan" style="width:auto;margin:0;min-height:38px;padding:6px 10px">'+esc(L('Aktualisieren','Refresh'))+'</button>'
-   +'</div>'
-   +'<div class="kn-room-list">'+rows+'</div>'
-   +pinModal
-   +'<div style="margin-top:12px;padding-top:10px;border-top:1px solid #3f7c5c">'
-   +'<label for="kn-manual-room">'+esc(L('Manuell verbinden (Raum 1–4 & 4-stelliger Code)','Connect manually (Room 1–4 & 4-digit code)'))+'</label>'
-   +'<div style="display:grid;grid-template-columns:1fr 2fr;gap:8px">'
-   +'<input id="kn-manual-room" type="number" min="1" max="4" value="1" aria-label="'+esc(L('Raumnummer','Room number'))+'">'
-   +'<input id="kn-manual-pin" type="text" inputmode="numeric" maxlength="4" value="" placeholder="1111" aria-label="'+esc(L('Zugangscode','Access code'))+'">'
-   +'</div>'
-   +'<button type="button" data-kn="online-manual-join" class="kn-primary" style="width:100%;margin-top:8px">'+esc(L('Mit Code verbinden','Connect with code'))+'</button>'
-   +'</div>'
-   +'<button type="button" data-kn="online-back" style="width:100%;margin-top:10px">'+esc(L('Zurück zur Online-Auswahl','Back to online menu'))+'</button>'
    +'</div>';
  }else if(o.view==='guest-wait'){
   body='<div class="kn-online-box">'
@@ -7637,6 +7656,46 @@ function renderOnlineSetup(){
    +'<button type="button" data-kn="online-leave" style="width:100%;margin-top:8px">'+esc(L('Raum verlassen','Leave room'))+'</button>'
    +'</div>';
  }else{
+  let joinPanel='';
+  if(o.joinExpanded||o.view==='join-list'){
+   const rows=KN_ROOM_SLOTS.map(slot=>{
+    const num=Number(slot)-999;
+    const info=o.knownRooms[slot];
+    const st=o.probeState[slot]||'idle';
+    const disabled=!info||info.started||info.count>=8;
+    const desc=!info?(o.scanning?L('Wird geprüft …','Checking …'):L('Kein aktiver Raum gefunden','No active room found')):(info.started?L('Partie läuft','Game in progress'):info.count+'/8 '+L('Spieler · Beitreten','players · Join'));
+    return '<button type="button" class="kn-room-btn" data-kn="online-pick-room" data-kn-room="'+slot+'" '+(disabled?'disabled':'')+'>'
+     +'<div style="display:flex;justify-content:space-between;gap:8px"><strong>'+esc(L('Raum ','Room ')+num)+'</strong><span class="kn-note">'+esc(info?info.hostName:st)+'</span></div>'
+     +'<div class="kn-note">'+esc(desc)+'</div>'
+     +'</button>';
+   }).join('');
+   joinPanel='<div class="kn-online-box" style="margin-top:10px">'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;gap:8px">'
+    +'<strong>'+esc(L('Räume (1–4)','Rooms (1–4)'))+'</strong>'
+    +'<div style="display:flex;gap:6px">'
+    +'<button type="button" data-kn="online-open-manual-modal" class="kn-primary" style="width:auto;margin:0;min-height:38px;padding:6px 10px">'+esc(L('Code eingeben','Enter code'))+'</button>'
+    +'<button type="button" data-kn="online-scan" style="width:auto;margin:0;min-height:38px;padding:6px 10px">'+esc(L('Aktualisieren','Refresh'))+'</button>'
+    +'</div></div>'
+    +'<div class="kn-room-list">'+rows+'</div>'
+    +'</div>';
+  }
+  let pinModalHtml='';
+  if(o.pinModal){
+   const isManual=o.pinModal.mode==='manual';
+   const roomNum=isManual?(o.pinModal.roomNum||1):(Number(o.pinModal.slot)-999);
+   pinModalHtml='<div class="kn-fixed-modal" role="dialog" aria-modal="true" aria-labelledby="kn-pin-modal-title">'
+    +'<div class="kn-fixed-modal-card">'
+    +'<h3 id="kn-pin-modal-title">'+esc(L('Zugangscode','Access code'))+'</h3>'
+    +'<p class="kn-note">'+esc(isManual?L('Raumnummer (1–4) und 4-stelligen Zugangscode eingeben:','Enter room number (1–4) and 4-digit access code:'):L('4-stelligen Zugangscode für Raum ','Enter 4-digit access code for room ')+roomNum+L(' eingeben:',' :'))+'</p>'
+    +(isManual?'<label for="kn-join-room-modal">'+esc(L('Raumnummer (1–4)','Room number (1–4)'))+'</label><input id="kn-join-room-modal" type="number" min="1" max="4" value="'+roomNum+'" style="margin-bottom:8px">':'')
+    +'<label for="kn-join-pin-modal">'+esc(L('Zugangscode (4 Ziffern)','Access code (4 digits)'))+'</label>'
+    +'<input id="kn-join-pin-modal" type="text" inputmode="numeric" maxlength="4" value="" placeholder="0000" style="text-align:center;font-family:ui-monospace,monospace;font-size:22px;letter-spacing:.18em">'
+    +(o.pinModalError?'<p id="kn-pin-error" role="alert" style="color:#fecaca">'+esc(o.pinModalError)+'</p>':'')
+    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">'
+    +'<button type="button" data-kn="online-confirm-pin" class="kn-primary">'+esc(L('Beitreten','Join'))+'</button>'
+    +'<button type="button" data-kn="online-cancel-pin">'+esc(L('Abbrechen','Cancel'))+'</button>'
+    +'</div></div></div>';
+  }
   body='<div class="kn-online-box">'
    +'<div class="kn-setup-grid">'
    +'<div><label for="kn-multi-rule-online">'+esc(L('Mehrere Kniffel','Multiple Yahtzees'))+'</label><select id="kn-multi-rule-online" data-kn-setting="multi-rule">'
@@ -7650,10 +7709,14 @@ function renderOnlineSetup(){
    +'<option value="top-down"'+(entryOrder==='top-down'?' selected':'')+'>'+esc(L('Von oben nach unten','Top to bottom'))+'</option>'
    +'</select></div></div>'
    +'<div style="margin-top:8px"><label class="kn-motion-option" for="kn-pothole-online" style="margin:0"><input type="checkbox" id="kn-pothole-online" data-kn-setting="pothole"'+(potholeStraightOpt?' checked':'')+'>'+esc(L('Kleine Straße mit Schlagloch (+20)','Pothole small straight (+20)'))+'</label></div>'
-   +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">'
-   +'<button type="button" data-kn="online-create" class="kn-primary">'+esc(L('Lobby erstellen','Create lobby'))+'</button>'
-   +'<button type="button" data-kn="online-join-menu">'+esc(L('Lobby beitreten','Join lobby'))+'</button>'
+   +'<button type="button" data-kn="online-copy-code" style="width:100%;margin-top:10px">'+esc(L('Zugangscode in Zwischenablage kopieren','Copy access code to clipboard'))+'</button>'
+   +'<button type="button" data-kn="online-open-manual-modal" style="width:100%;margin-top:8px">'+esc(L('Zugangscode eingeben','Enter access code'))+'</button>'
+   +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">'
+   +'<button type="button" data-kn="online-create" class="kn-primary" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;text-align:left"><span style="font-weight:900">'+esc(L('Lobby Erstellen','Create lobby'))+'</span><span style="font-size:11px;font-weight:500;opacity:.85">'+esc(L('Du wirst Host','You become host'))+'</span></button>'
+   +'<button type="button" data-kn="online-join-menu" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;text-align:left"><span style="display:inline-flex;align-items:center;gap:6px;font-weight:900"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg><span>'+esc(L('Lobby beitreten','Join lobby'))+'</span></span><span style="font-size:11px;font-weight:500;opacity:.85">'+esc(L('Raum1 bis Raum4 anzeigen','Show Room1 to Room4'))+'</span></button>'
    +'</div>'
+   +joinPanel
+   +pinModalHtml
    +'</div>';
  }
  out.innerHTML='<p class="kn-note">'+esc(L('Online mit Freunden · 2–8 Spieler · Eigene Geräte','Online with friends · 2–8 players · Own devices'))+'</p>'
@@ -7868,7 +7931,7 @@ out.addEventListener('change',e=>{
  if(e.target.dataset.knSetting==='entry-order'){const fid=e.target.id;if(ENTRY_ORDERS.includes(e.target.value))entryOrder=e.target.value;saveSetup();render();document.getElementById(fid)?.focus();}
  if(e.target.dataset.knSetting==='pothole'){const fid=e.target.id;potholeStraightOpt=!!e.target.checked;saveSetup();render();document.getElementById(fid)?.focus();}
 });
-out.addEventListener('focusin',e=>{const t=e.target;if(t.matches('[data-kn-name]')){t.select();try{t.setSelectionRange(0,t.value.length);}catch(_){}requestAnimationFrame(()=>{if(document.activeElement===t){t.select();try{t.setSelectionRange(0,t.value.length);}catch(_){}}})}});
+out.addEventListener('focusin',e=>{const t=e.target;if(t.matches('[data-kn-name],#kn-online-name,#kn-pin-input,#kn-manual-pin')){t.select();try{t.setSelectionRange(0,t.value.length);}catch(_){}requestAnimationFrame(()=>{if(document.activeElement===t){t.select();try{t.setSelectionRange(0,t.value.length);}catch(_){}}})}});
 out.addEventListener('click',async e=>{
  const btn=e.target.closest('button');if(!btn||btn.disabled||!out.contains(btn))return;
  const act=btn.dataset.kn;
@@ -7876,26 +7939,35 @@ out.addEventListener('click',async e=>{
  if(act==='import-csv'){out.querySelector('[data-kn-csv-input]')?.click();return;}
  if(act==='online-diag'){if(typeof openNetDiagnostics==='function')openNetDiagnostics();return;}
  if(act==='online-create'){knCreateRoom();return;}
- if(act==='online-join-menu'){knScanRooms();return;}
+ if(act==='online-copy-code'){knCopyOnlineCode(false);return;}
+ if(act==='online-copy-host'){knCopyOnlineCode(true);return;}
+ if(act==='online-join-menu'){
+  if(knOnline){
+   if(knOnline.joinExpanded){knOnline.joinExpanded=false;render();return;}
+   knOnline.joinExpanded=true;
+  }
+  knScanRooms();return;
+ }
  if(act==='online-scan'){knScanRooms();return;}
- if(act==='online-back'){if(knOnline){knOnline.view='lobby';knOnline.pinModalCode=null;render();}return;}
+ if(act==='online-open-manual-modal'){knOpenPinOverlay({mode:'manual',roomNum:1});return;}
  if(act==='online-leave'){knResetOnline(true);render(true);return;}
  if(act==='online-start'){knStartOnlineHostGame();return;}
- if(act==='online-pick-room'){if(knOnline){knOnline.pinModalCode=btn.dataset.knRoom||'';knOnline.pinModalError='';render();}return;}
- if(act==='online-cancel-pin'){if(knOnline){knOnline.pinModalCode=null;knOnline.pinModalError='';render();}return;}
+ if(act==='online-pick-room'){knOpenPinOverlay({mode:'room',slot:btn.dataset.knRoom||''});return;}
+ if(act==='online-cancel-pin'){if(knOnline){knOnline.pinModal=null;knOnline.pinModalError='';render();}return;}
  if(act==='online-confirm-pin'){
-  const code=knOnline?.pinModalCode||'';
+  const m=knOnline?.pinModal;
   const pin=(document.getElementById('kn-join-pin-modal')?.value||'').trim();
-  knJoinRoom(code,pin);return;
- }
- if(act==='online-manual-join'){
-  const num=Number(document.getElementById('kn-manual-room')?.value||0);
-  const pin=(document.getElementById('kn-manual-pin')?.value||'').trim();
-  if(!Number.isInteger(num)||num<1||num>4){
-   if(knOnline){knOnline.status=L('Bitte eine Raumnummer von 1 bis 4 eingeben.','Please enter a room number from 1 to 4.');render();}
-   return;
+  if(m?.mode==='manual'){
+   const num=Number(document.getElementById('kn-join-room-modal')?.value||0);
+   if(!Number.isInteger(num)||num<1||num>4){
+    knOnline.pinModalError=L('Bitte eine Raumnummer von 1 bis 4 eingeben.','Please enter a room number from 1 to 4.');
+    render();return;
+   }
+   knJoinRoom(String(999+num),pin);
+  }else if(m?.slot){
+   knJoinRoom(m.slot,pin);
   }
-  knJoinRoom(String(999+num),pin);return;
+  return;
  }
  if(act==='start'&&!g){startGame();return;}
  if(!g)return;
