@@ -1,5 +1,6 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
+  {"version": "6.8.1", "changes": {"de": ["Schwimmen: Online-Lobby optisch an Kniffeln angelehnt und veraltete Versionshinweise entfernt."], "en": ["Thirty-One: Restyled the online lobby to match Yahtzee and removed outdated version notices."]}},
   {
     "version": "6.8.0",
     "changes": {
