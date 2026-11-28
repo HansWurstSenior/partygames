@@ -1,6 +1,17 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.7.6",
+    "changes": {
+      "de": [
+        "Hauptmenü: Aktive Auswahlfarbe von Schwimmen und Kniffeln in beiden Farbmodi korrigiert (gelb im Default-Design, weiß mit dunkler Schrift im Dark-Design)."
+      ],
+      "en": [
+        "Main menu: fixed active selection styling for Thirty-One and Yahtzee tabs in both themes (amber in Default mode, white with dark text in Dark mode)."
+      ]
+    }
+  },
+  {
     "version": "6.7.5",
     "changes": {
       "de": [
