@@ -1,6 +1,23 @@
 // Add future releases at the top; keep previous entries for users who skip versions.
 const RELEASE_HISTORY=[
   {
+    "version": "6.8.0",
+    "changes": {
+      "de": [
+        "Kniffeln: Doppelte Vorlagen-IDs bei Einstellungen, PIN-Dialog und CSV-Import bereinigt, sodass Fokus-Wiederherstellung und Statusmeldungen eindeutig zugeordnet sind.",
+        "Werwolf: In der Spielleitungs-Übersicht und Abstimmung wird bei eingeblendeten Rollen nun auch der Status von Heil- und Gifttrank der Hexe angezeigt.",
+        "Hochstapler: Zusatzliste hochstapler-begriffe.json um die drei Kategorien „Berufe“, „Filme & Serien“ und „Länder & Städte“ (je 20 zweisprachige Begriffe) erweitert.",
+        "Manifest: App-Beschreibung auf sieben Partyspiele aktualisiert."
+      ],
+      "en": [
+        "Yahtzee: deduplicated template IDs for settings, PIN modal, and CSV import so focus restoration and status messages target unique elements.",
+        "Werewolf: the moderator village overview and voting screen now also display the status of the witch’s healing and poison potions when roles are revealed.",
+        "Impostor: expanded the extra term list hochstapler-begriffe.json with three new categories (“Professions”, “Movies & Series”, and “Countries & Cities”, 20 bilingual terms each).",
+        "Manifest: updated app description to seven party games."
+      ]
+    }
+  },
+  {
     "version": "6.7.6",
     "changes": {
       "de": [

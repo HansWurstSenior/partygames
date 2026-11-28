@@ -1,8 +1,12 @@
 {
   "format": 1,
-  "stand": "2026-11-26",
+  "stand": "2026-11-28",
   "hinweis": "Zusatzbegriffe für Hochstapler. Eintrag = {\"de\":\"…\",\"en\":\"…\"}. Neue Einträge einfach in der passenden Kategorie ergänzen; neue Kategorien als neuen Schlüssel anlegen (optional englischer Name unter kategorienamen_en). Datei im Repository hochladen und in Hochstapler auf 'Begriffe aktualisieren' tippen.",
-  "kategorienamen_en": {},
+  "kategorienamen_en": {
+    "Berufe": "Professions",
+    "Filme & Serien": "Movies & Series",
+    "Länder & Städte": "Countries & Cities"
+  },
   "kategorien": {
     "Alltag": [
       {
@@ -412,6 +416,252 @@
       {
         "de": "Rodeln",
         "en": "Sledding"
+      }
+    ],
+    "Berufe": [
+      {
+        "de": "Arzt",
+        "en": "Doctor"
+      },
+      {
+        "de": "Feuerwehrmann",
+        "en": "Firefighter"
+      },
+      {
+        "de": "Pilot",
+        "en": "Pilot"
+      },
+      {
+        "de": "Koch",
+        "en": "Chef"
+      },
+      {
+        "de": "Lehrer",
+        "en": "Teacher"
+      },
+      {
+        "de": "Architekt",
+        "en": "Architect"
+      },
+      {
+        "de": "Polizist",
+        "en": "Police officer"
+      },
+      {
+        "de": "Bäcker",
+        "en": "Baker"
+      },
+      {
+        "de": "Tischler",
+        "en": "Carpenter"
+      },
+      {
+        "de": "Fotograf",
+        "en": "Photographer"
+      },
+      {
+        "de": "Journalist",
+        "en": "Journalist"
+      },
+      {
+        "de": "Astronaut",
+        "en": "Astronaut"
+      },
+      {
+        "de": "Tierarzt",
+        "en": "Veterinarian"
+      },
+      {
+        "de": "Zahnarzt",
+        "en": "Dentist"
+      },
+      {
+        "de": "Richter",
+        "en": "Judge"
+      },
+      {
+        "de": "Elektriker",
+        "en": "Electrician"
+      },
+      {
+        "de": "Gärtner",
+        "en": "Gardener"
+      },
+      {
+        "de": "Friseur",
+        "en": "Hairdresser"
+      },
+      {
+        "de": "Mechaniker",
+        "en": "Mechanic"
+      },
+      {
+        "de": "Apotheker",
+        "en": "Pharmacist"
+      }
+    ],
+    "Filme & Serien": [
+      {
+        "de": "Titanic",
+        "en": "Titanic"
+      },
+      {
+        "de": "Star Wars",
+        "en": "Star Wars"
+      },
+      {
+        "de": "Harry Potter",
+        "en": "Harry Potter"
+      },
+      {
+        "de": "Der Herr der Ringe",
+        "en": "The Lord of the Rings"
+      },
+      {
+        "de": "Jurassic Park",
+        "en": "Jurassic Park"
+      },
+      {
+        "de": "Matrix",
+        "en": "The Matrix"
+      },
+      {
+        "de": "Inception",
+        "en": "Inception"
+      },
+      {
+        "de": "Forrest Gump",
+        "en": "Forrest Gump"
+      },
+      {
+        "de": "Breaking Bad",
+        "en": "Breaking Bad"
+      },
+      {
+        "de": "Stranger Things",
+        "en": "Stranger Things"
+      },
+      {
+        "de": "Game of Thrones",
+        "en": "Game of Thrones"
+      },
+      {
+        "de": "Sherlock",
+        "en": "Sherlock"
+      },
+      {
+        "de": "Der König der Löwen",
+        "en": "The Lion King"
+      },
+      {
+        "de": "Findet Nemo",
+        "en": "Finding Nemo"
+      },
+      {
+        "de": "James Bond",
+        "en": "James Bond"
+      },
+      {
+        "de": "Zurück in die Zukunft",
+        "en": "Back to the Future"
+      },
+      {
+        "de": "Avatar",
+        "en": "Avatar"
+      },
+      {
+        "de": "Tatort",
+        "en": "Tatort"
+      },
+      {
+        "de": "Die Simpsons",
+        "en": "The Simpsons"
+      },
+      {
+        "de": "Haus des Geldes",
+        "en": "Money Heist"
+      }
+    ],
+    "Länder & Städte": [
+      {
+        "de": "Deutschland",
+        "en": "Germany"
+      },
+      {
+        "de": "Frankreich",
+        "en": "France"
+      },
+      {
+        "de": "Italien",
+        "en": "Italy"
+      },
+      {
+        "de": "Spanien",
+        "en": "Spain"
+      },
+      {
+        "de": "Japan",
+        "en": "Japan"
+      },
+      {
+        "de": "Brasilien",
+        "en": "Brazil"
+      },
+      {
+        "de": "Kanada",
+        "en": "Canada"
+      },
+      {
+        "de": "Australien",
+        "en": "Australia"
+      },
+      {
+        "de": "Ägypten",
+        "en": "Egypt"
+      },
+      {
+        "de": "Norwegen",
+        "en": "Norway"
+      },
+      {
+        "de": "Berlin",
+        "en": "Berlin"
+      },
+      {
+        "de": "Paris",
+        "en": "Paris"
+      },
+      {
+        "de": "London",
+        "en": "London"
+      },
+      {
+        "de": "Rom",
+        "en": "Rome"
+      },
+      {
+        "de": "New York",
+        "en": "New York"
+      },
+      {
+        "de": "Tokio",
+        "en": "Tokyo"
+      },
+      {
+        "de": "Hamburg",
+        "en": "Hamburg"
+      },
+      {
+        "de": "Wien",
+        "en": "Vienna"
+      },
+      {
+        "de": "Amsterdam",
+        "en": "Amsterdam"
+      },
+      {
+        "de": "Island",
+        "en": "Iceland"
       }
     ]
   }
